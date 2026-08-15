@@ -51,7 +51,7 @@ export const OwnerLockModal: React.FC<OwnerLockModalProps> = ({ onClose, onSucce
       if (onSuccess) onSuccess();
       onClose();
     } else {
-      setErrorMsg('Incorrect PIN or Email. Hint: Default Master PIN is 8092 or use sonivicky297@gmail.com');
+      setErrorMsg('Incorrect Password or Email. Access denied.');
     }
   };
 
@@ -221,13 +221,13 @@ export const OwnerLockModal: React.FC<OwnerLockModalProps> = ({ onClose, onSucce
             <form onSubmit={handleUnlock} className="space-y-4">
               <div>
                 <label className="block text-xs font-bold text-slate-800 mb-1.5">
-                  Enter Master Owner PIN or Owner Email
+                  Enter Master Owner Password or Owner Email
                 </label>
                 <div className="relative">
                   <input
                     type="password"
                     autoFocus
-                    placeholder="Enter Master PIN (e.g. 8092) or sonivicky297@gmail.com"
+                    placeholder="Enter Owner Password / PIN or Email"
                     value={inputVal}
                     onChange={(e) => {
                       setInputVal(e.target.value);
@@ -245,7 +245,7 @@ export const OwnerLockModal: React.FC<OwnerLockModalProps> = ({ onClose, onSucce
                 )}
               </div>
 
-              {/* Quick Hints */}
+              {/* Owner Security Info */}
               <div className="bg-slate-50 p-3 rounded-xl border border-slate-200/80 text-[11px] text-slate-600 space-y-1">
                 <div className="flex items-center gap-1.5 text-slate-800 font-bold">
                   <Mail className="w-3.5 h-3.5 text-amber-600" />
@@ -253,7 +253,11 @@ export const OwnerLockModal: React.FC<OwnerLockModalProps> = ({ onClose, onSucce
                 </div>
                 <div className="flex items-center gap-1.5 text-slate-700">
                   <Smartphone className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Helpline / Phone: 8092195302 (Default PIN: 8092)</span>
+                  <span>Helpline / Phone: 8092195302</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-slate-500 pt-1 text-[10px] border-t border-slate-200 mt-1">
+                  <ShieldCheck className="w-3 h-3 text-amber-600 shrink-0" />
+                  <span>Protected Setting: Only the authorized owner can view or edit this password.</span>
                 </div>
               </div>
 

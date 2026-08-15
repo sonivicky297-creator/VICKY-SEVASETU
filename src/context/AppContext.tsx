@@ -456,6 +456,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const setOwnerPasscode = (newPin: string) => {
+    if (!isOwnerAuthenticated) {
+      addToast('Security Error: Only authenticated owner can change the password.', 'error');
+      return;
+    }
     setOwnerPasscodeState(newPin);
     localStorage.setItem(STORAGE_KEYS.OWNER_PIN, newPin);
   };
