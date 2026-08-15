@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* Leaflet Custom Marker & Animation Styles */
+.leaflet-div-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.3;
+  }
+}
+
+.user-pulse-ring {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
