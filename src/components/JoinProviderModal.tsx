@@ -249,7 +249,7 @@ export const JoinProviderModal: React.FC<JoinProviderModalProps> = ({ onClose })
                     required
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="809219303"
+                    placeholder="8092195302"
                     className="w-full p-2.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-hidden focus:border-amber-500 focus:bg-white"
                   />
                 </div>
@@ -262,7 +262,7 @@ export const JoinProviderModal: React.FC<JoinProviderModalProps> = ({ onClose })
                     type="tel"
                     value={whatsapp}
                     onChange={(e) => setWhatsapp(e.target.value)}
-                    placeholder="809219303"
+                    placeholder="8092195302"
                     className="w-full p-2.5 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-hidden focus:border-amber-500 focus:bg-white"
                   />
                 </div>

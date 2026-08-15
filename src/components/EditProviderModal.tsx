@@ -91,7 +91,7 @@ export const EditProviderModal: React.FC<EditProviderModalProps> = ({
   const [phone, setPhone] = useState(provider.phone || '+91 80921 95302');
 
   // 9. WhatsApp
-  const [whatsapp, setWhatsapp] = useState(provider.whatsapp || '+91809219303');
+  const [whatsapp, setWhatsapp] = useState(provider.whatsapp || '+918092195302');
 
   // Additional Meta
   const [categoryId, setCategoryId] = useState(provider.categoryId || categories[0]?.id || '');
@@ -645,7 +645,7 @@ export const EditProviderModal: React.FC<EditProviderModalProps> = ({
                   type="text"
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
-                  placeholder="+91809219303"
+                  placeholder="+918092195302"
                   className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-900 focus:outline-hidden focus:border-amber-500"
                 />
               </div>

@@ -432,7 +432,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const unlockOwnerAccess = (passcodeOrEmail: string): boolean => {
     const clean = passcodeOrEmail.trim().toLowerCase();
-    if (clean === ownerPasscode.toLowerCase() || clean === ownerEmail.toLowerCase() || clean === '8092' || clean === '809219303') {
+    if (clean === ownerPasscode.toLowerCase() || clean === ownerEmail.toLowerCase() || clean === '8092' || clean === '8092195302') {
       setIsOwnerAuthenticated(true);
       localStorage.setItem(STORAGE_KEYS.OWNER_AUTH, 'true');
       if (pendingEditCallback) {

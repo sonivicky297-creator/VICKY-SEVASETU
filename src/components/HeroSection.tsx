@@ -98,21 +98,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearchSubmit }) => {
                 <span className="text-[10px] bg-emerald-500 text-slate-950 font-black px-1.5 py-0.2 rounded-full">ACTIVE</span>
               </div>
               <p className="text-sm font-semibold text-white mt-0.5">
-                Call / WhatsApp: <span className="text-amber-300 font-extrabold tracking-wide text-base">809219303</span> • <span className="text-pink-300 font-medium">Instagram: @vickyvirat30</span>
+                Call / WhatsApp: <span className="text-amber-300 font-extrabold tracking-wide text-base">8092195302</span> • <span className="text-pink-300 font-medium">Instagram: @vickyvirat30</span>
               </p>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-2 shrink-0">
             <a
-              href="tel:809219303"
+              href="tel:8092195302"
               className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-md transition-all hover:scale-105"
             >
               <Phone className="w-4 h-4" />
-              <span>Call 809219303</span>
+              <span>Call 8092195302</span>
             </a>
             <a
-              href="https://wa.me/91809219303?text=Hello%2C%20I%20need%20service%20in%20Bhurkunda%20%2F%20Ramgarh%20%2F%20Sayal%20%2F%20Saunda%20%2F%20Patratu%20area."
+              href="https://wa.me/918092195302?text=Hello%2C%20I%20need%20service%20in%20Bhurkunda%20%2F%20Ramgarh%20%2F%20Sayal%20%2F%20Saunda%20%2F%20Patratu%20area."
               target="_blank"
               rel="noopener noreferrer"
               className="px-3.5 py-2 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-md transition-all hover:scale-105"

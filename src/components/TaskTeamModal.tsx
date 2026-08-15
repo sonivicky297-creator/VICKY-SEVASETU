@@ -257,7 +257,7 @@ export const TaskTeamModal: React.FC<TaskTeamModalProps> = ({
                   {/* Actions: Call, WhatsApp, Book */}
                   <div className="mt-4 pt-3 border-t border-slate-100 grid grid-cols-3 gap-2">
                     <a
-                      href={`tel:${pro.phone.replace(/[^0-9+]/g, '') || '809219303'}`}
+                      href={`tel:${pro.phone.replace(/[^0-9+]/g, '') || '8092195302'}`}
                       className="py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1 transition-colors shadow-2xs"
                     >
                       <Phone className="w-3.5 h-3.5" />
@@ -265,7 +265,7 @@ export const TaskTeamModal: React.FC<TaskTeamModalProps> = ({
                     </a>
 
                     <a
-                      href={`https://wa.me/${(pro.whatsapp || pro.phone).replace(/[^0-9]/g, '') || '91809219303'}?text=${encodeURIComponent(`Hello ${pro.name}, I want to book your ${category.name} service via Vicky Seva Setu.`)}`}
+                      href={`https://wa.me/${(pro.whatsapp || pro.phone).replace(/[^0-9]/g, '') || '918092195302'}?text=${encodeURIComponent(`Hello ${pro.name}, I want to book your ${category.name} service via Vicky Seva Setu.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="py-2 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold text-xs flex items-center justify-center gap-1 transition-colors shadow-2xs"
@@ -300,7 +300,7 @@ export const TaskTeamModal: React.FC<TaskTeamModalProps> = ({
         {/* Footer */}
         <div className="bg-slate-50 p-4 border-t border-slate-200 flex items-center justify-between shrink-0">
           <span className="text-xs text-slate-600">
-            Helpline: <strong>809219303</strong> • Direct 0% commission
+            Helpline: <strong>8092195302</strong> • Direct 0% commission
           </span>
           <button
             onClick={onClose}

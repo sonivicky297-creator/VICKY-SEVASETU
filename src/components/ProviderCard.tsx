@@ -94,7 +94,7 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({
     );
   };
 
-  const cleanPhone = provider.whatsapp?.replace(/[^0-9]/g, '') || '91809219303';
+  const cleanPhone = provider.whatsapp?.replace(/[^0-9]/g, '') || '918092195302';
   const whatsappMsg = encodeURIComponent(
     `Hello ${provider.name}, I found your profile on Vicky Seva Setu and would like to inquire about your services in Bhurkunda / Ramgarh & nearby areas.`
   );

@@ -49,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({
               Are you a skilled technician or service provider in Bhurkunda, Ramgarh, Sayal, Saunda or Patratu?
             </h3>
             <p className="text-sm text-amber-200/80 mt-1 max-w-xl">
-              Join {t.brandName} at 0% commission and connect directly with local households across Bhurkunda, Ramgarh, Sayal, Saunda, Balkudra, Kurse, Cooperative, Saundaa Basti, and Patratu. Direct helpline: 809219303 • Instagram: @vickyvirat30.
+              Join {t.brandName} at 0% commission and connect directly with local households across Bhurkunda, Ramgarh, Sayal, Saunda, Balkudra, Kurse, Cooperative, Saundaa Basti, and Patratu. Direct helpline: 8092195302 • Instagram: @vickyvirat30.
             </p>
           </div>
 
@@ -96,7 +96,7 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-md">
-              {t.brandName} connects local residents in Bhurkunda, Ramgarh, Sayal, Saunda, Balkudra, Kurse, Cooperative, Saundaa Basti, and Patratu directly with skilled, verified tradespeople. Call or WhatsApp directly at 809219303 or connect on Instagram @vickyvirat30.
+              {t.brandName} connects local residents in Bhurkunda, Ramgarh, Sayal, Saunda, Balkudra, Kurse, Cooperative, Saundaa Basti, and Patratu directly with skilled, verified tradespeople. Call or WhatsApp directly at 8092195302 or connect on Instagram @vickyvirat30.
             </p>
 
             {/* Social and Trust badging */}
@@ -218,23 +218,23 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-3 text-xs sm:text-sm">
               <li>
                 <a 
-                  href="tel:809219303"
+                  href="tel:8092195302"
                   className="flex items-center gap-2 text-amber-300 hover:text-amber-200 font-bold transition-colors"
                 >
                   <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Call: +91 809219303</span>
+                  <span>Call: +91 8092195302</span>
                 </a>
               </li>
               <li>
                 <a 
-                  href="https://wa.me/91809219303?text=Hello%2C%20I%20need%20service%20in%20Bhurkunda%20%2F%20Ramgarh%20%2F%20Sayal%20%2F%20Saunda%20%2F%20Patratu%20area."
+                  href="https://wa.me/918092195302?text=Hello%2C%20I%20need%20service%20in%20Bhurkunda%20%2F%20Ramgarh%20%2F%20Sayal%20%2F%20Saunda%20%2F%20Patratu%20area."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-2 text-emerald-400 hover:text-emerald-300 transition-colors"
                 >
                   <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-semibold block">WhatsApp: 809219303</span>
+                    <span className="font-semibold block">WhatsApp: 8092195302</span>
                     <span className="text-[11px] text-slate-400 font-normal">If call is busy, send a message</span>
                   </div>
                 </a>
@@ -274,7 +274,7 @@ export const Footer: React.FC<FooterProps> = ({
       <div className="border-t border-slate-900 bg-black/40 py-6 text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>
-            © {new Date().getFullYear()} {t.brandName} • All rights reserved. Direct Helpline: +91 809219303 • Instagram: @vickyvirat30
+            © {new Date().getFullYear()} {t.brandName} • All rights reserved. Direct Helpline: +91 8092195302 • Instagram: @vickyvirat30
           </p>
 
           <div className="flex items-center gap-4">

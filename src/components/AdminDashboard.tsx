@@ -90,7 +90,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onClose }) => {
     setProvName('');
     setProvAvatar('https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=500&auto=format&fit=crop&q=80');
     setProvPhone('+91 80921 95302');
-    setProvWhatsapp('+91809219303');
+    setProvWhatsapp('+918092195302');
     setProvCategory(categories[0]?.id || '');
     setProvTitle('Senior Specialist');
     setProvCity(cities[0] || 'Bhurkunda');
