@@ -624,16 +624,16 @@ const MATERIALS_PEOPLE = buildCategorySpecialists('cat-materials', 'Materials', 
 ]);
 
 export const INITIAL_PROVIDERS: ServiceProvider[] = [
-  ...TUITION_PEOPLE,
-  ...ELECTRICIAN_PEOPLE,
-  ...PLUMBER_PEOPLE,
-  ...CARPENTER_PEOPLE,
-  ...PAINTER_PEOPLE,
-  ...APPLIANCE_PEOPLE,
-  ...PRIEST_PEOPLE,
-  ...MATERIALS_PEOPLE,
-  ...COMPUTER_PEOPLE,
-  ...CLEANING_PEOPLE
+  ...TUITION_PEOPLE.slice(0, 10),
+  ...ELECTRICIAN_PEOPLE.slice(0, 10),
+  ...PLUMBER_PEOPLE.slice(0, 10),
+  ...CARPENTER_PEOPLE.slice(0, 10),
+  ...PAINTER_PEOPLE.slice(0, 10),
+  ...APPLIANCE_PEOPLE.slice(0, 10),
+  ...PRIEST_PEOPLE.slice(0, 10),
+  ...MATERIALS_PEOPLE.slice(0, 10),
+  ...COMPUTER_PEOPLE.slice(0, 10),
+  ...CLEANING_PEOPLE.slice(0, 10)
 ];
 
 export const INITIAL_REQUESTS: ServiceRequest[] = [

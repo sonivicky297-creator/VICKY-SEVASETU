@@ -13,7 +13,9 @@ import {
   Instagram,
   Lock,
   Unlock,
-  KeyRound
+  KeyRound,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
@@ -131,12 +133,35 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
           
-          {/* Logo & City Selector */}
-          <div className="flex items-center gap-3 sm:gap-6">
+          {/* Logo & Navigation Controls */}
+          <div className="flex items-center gap-2 sm:gap-4">
+            {/* Back & Forward History Controls */}
+            <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200/80 shadow-2xs shrink-0">
+              <button
+                type="button"
+                onClick={() => window.history.back()}
+                id="nav-back-button"
+                className="p-1.5 sm:p-2 rounded-lg text-slate-700 hover:bg-white hover:text-amber-600 hover:shadow-xs transition-all active:scale-95"
+                title="Go Back Page"
+              >
+                <ChevronLeft className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+              </button>
+              <span className="w-px h-4 bg-slate-200"></span>
+              <button
+                type="button"
+                onClick={() => window.history.forward()}
+                id="nav-forward-button"
+                className="p-1.5 sm:p-2 rounded-lg text-slate-700 hover:bg-white hover:text-amber-600 hover:shadow-xs transition-all active:scale-95"
+                title="Go Forward Page"
+              >
+                <ChevronRight className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+              </button>
+            </div>
+
             <button 
               onClick={() => handleNavClick('home')}
               id="brand-logo-btn"
-              className="flex items-center gap-2.5 text-left group"
+              className="flex items-center gap-2 text-left group"
             >
               <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-500 flex items-center justify-center text-white shadow-md shadow-amber-600/20 group-hover:scale-105 transition-transform">
                 <Wrench className="w-5 h-5 sm:w-6 sm:h-6" />

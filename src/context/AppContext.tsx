@@ -100,6 +100,7 @@ interface AppContextType {
   lockOwnerAccess: () => void;
   toggleEditLockToOwner: (enable: boolean) => void;
   setOwnerPasscode: (newPin: string) => void;
+  resetOwnerPasswordViaGmail: (emailInput: string, newPasscode: string) => boolean;
   showOwnerUnlockModal: boolean;
   openOwnerUnlockModal: (callback?: () => void) => void;
   closeOwnerUnlockModal: () => void;
@@ -409,17 +410,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     addToast('Provider "Closed Today" status updated.', 'info');
   };
 
-  // Owner Lock and Edit Protection
-  const [isEditLockedToOwner, setIsEditLockedToOwner] = useState<boolean>(() => {
-    const saved = localStorage.getItem(STORAGE_KEYS.OWNER_LOCK);
-    return saved !== null ? saved === 'true' : true; // Locked to owner by default
-  });
+  // Owner Lock and Single Password System
+  const [isEditLockedToOwner, setIsEditLockedToOwner] = useState<boolean>(true);
 
   const [isOwnerAuthenticated, setIsOwnerAuthenticated] = useState<boolean>(() => {
     const saved = localStorage.getItem(STORAGE_KEYS.OWNER_AUTH);
     return saved === 'true';
   });
 
+  // Single Owner Password (Default: 8092, owner can change)
   const [ownerPasscode, setOwnerPasscodeState] = useState<string>(() => {
     return localStorage.getItem(STORAGE_KEYS.OWNER_PIN) || '8092';
   });
@@ -428,11 +427,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [pendingEditCallback, setPendingEditCallback] = useState<(() => void) | null>(null);
 
   const ownerEmail = 'sonivicky297@gmail.com';
-  const canEditDocument = !isEditLockedToOwner || isOwnerAuthenticated;
+  // Editing is strictly allowed ONLY for the authenticated owner
+  const canEditDocument = isOwnerAuthenticated;
 
-  const unlockOwnerAccess = (passcodeOrEmail: string): boolean => {
-    const clean = passcodeOrEmail.trim().toLowerCase();
-    if (clean === ownerPasscode.toLowerCase() || clean === ownerEmail.toLowerCase() || clean === '8092' || clean === '8092195302') {
+  const unlockOwnerAccess = (enteredPasscode: string): boolean => {
+    const cleanInput = enteredPasscode.trim();
+    // Strictly verify against the single Master Owner Password (No Gmail bypass, No multiple passwords)
+    if (cleanInput === ownerPasscode.trim()) {
       setIsOwnerAuthenticated(true);
       localStorage.setItem(STORAGE_KEYS.OWNER_AUTH, 'true');
       if (pendingEditCallback) {
@@ -450,18 +451,38 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const toggleEditLockToOwner = (enable: boolean) => {
-    setIsEditLockedToOwner(enable);
-    localStorage.setItem(STORAGE_KEYS.OWNER_LOCK, enable ? 'true' : 'false');
-    addToast(enable ? '🔒 Document Lock Enabled: Only Owner can edit.' : '🔓 Document Lock Disabled: Open Editing.', 'info');
+    setIsEditLockedToOwner(true); // Always enforced
+    addToast('🔒 Locker Active: Only Owner can edit.', 'info');
   };
 
-  const setOwnerPasscode = (newPin: string) => {
+  const setOwnerPasscode = (newPasscode: string) => {
     if (!isOwnerAuthenticated) {
-      addToast('Security Error: Only authenticated owner can change the password.', 'error');
+      addToast('Security Error: Only authenticated owner can change the single password.', 'error');
       return;
     }
-    setOwnerPasscodeState(newPin);
-    localStorage.setItem(STORAGE_KEYS.OWNER_PIN, newPin);
+    const cleanPass = newPasscode.trim();
+    if (!cleanPass) return;
+    setOwnerPasscodeState(cleanPass);
+    localStorage.setItem(STORAGE_KEYS.OWNER_PIN, cleanPass);
+  };
+
+  const resetOwnerPasswordViaGmail = (emailInput: string, newPasscode: string): boolean => {
+    const cleanEmail = emailInput.trim().toLowerCase();
+    if (cleanEmail === ownerEmail.toLowerCase()) {
+      const cleanPass = newPasscode.trim();
+      if (!cleanPass) return false;
+      setOwnerPasscodeState(cleanPass);
+      localStorage.setItem(STORAGE_KEYS.OWNER_PIN, cleanPass);
+      setIsOwnerAuthenticated(true);
+      localStorage.setItem(STORAGE_KEYS.OWNER_AUTH, 'true');
+      if (pendingEditCallback) {
+        pendingEditCallback();
+        setPendingEditCallback(null);
+      }
+      addToast(`✉️ Password reset via Gmail (${ownerEmail}) successful! Access Unlocked.`, 'success');
+      return true;
+    }
+    return false;
   };
 
   const openOwnerUnlockModal = (callback?: () => void) => {
@@ -741,6 +762,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         lockOwnerAccess,
         toggleEditLockToOwner,
         setOwnerPasscode,
+        resetOwnerPasswordViaGmail,
         showOwnerUnlockModal,
         openOwnerUnlockModal,
         closeOwnerUnlockModal,

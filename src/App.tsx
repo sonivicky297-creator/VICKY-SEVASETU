@@ -18,6 +18,7 @@ import { BarcodeModal } from './components/BarcodeModal';
 import { TaskImageEditorModal } from './components/TaskImageEditorModal';
 import { EditProviderModal } from './components/EditProviderModal';
 import { OwnerLockModal } from './components/OwnerLockModal';
+import { BottomLeftOwnerEditLock } from './components/BottomLeftOwnerEditLock';
 import { Footer } from './components/Footer';
 import { ToastContainer } from './components/ToastContainer';
 import { Category, ServiceProvider } from './types';
@@ -228,6 +229,9 @@ const MainAppContent: React.FC = () => {
           onClose={closeOwnerUnlockModal}
         />
       )}
+
+      {/* Bottom Left Floating Owner Lock / 30-Second Timer Widget */}
+      <BottomLeftOwnerEditLock />
 
       {/* Global Toast System */}
       <ToastContainer />
