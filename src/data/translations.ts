@@ -16,7 +16,7 @@ export const translations = {
     directCall: 'Direct Call',
     directWhatsApp: 'WhatsApp Direct',
     directInstagram: 'Instagram @vickyvirat30',
-    directHelplineNotice: 'Call: 8092195302 | WhatsApp & Instagram: @vickyvirat30 | If line is busy, drop a WhatsApp message!',
+    directHelplineNotice: 'Call: 809219303 | WhatsApp & Instagram: @vickyvirat30 | If line is busy, drop a WhatsApp message!',
     
     // Navigation
     home: 'Home',
@@ -31,7 +31,7 @@ export const translations = {
     // Hero
     heroTitlePart1: 'For Every Home & Construction Need,',
     heroTitlePart2: 'Connect Directly with Local Pros',
-    heroSubtitle: 'Serving Bhurkunda, Ramgarh, Sayal, Saunda, Balkudra, Kurse, Cooperative, Saundaa Basti, Patratu, and all surrounding areas. Direct phone & WhatsApp at 8092195302 • Instagram: @vickyvirat30 (If call is busy, drop a WhatsApp message).',
+    heroSubtitle: 'Serving Bhurkunda, Ramgarh, Sayal, Saunda, Balkudra, Kurse, Cooperative, Saundaa Basti, Patratu, and all surrounding areas. Direct phone & WhatsApp at 809219303 • Instagram: @vickyvirat30 (If call is busy, drop a WhatsApp message).',
     popularSearches: 'Popular Searches:',
     statsVerified: '100% ID Verified',
     statsResponse: 'Fast Direct Response',
@@ -57,7 +57,7 @@ export const translations = {
     step2Title: '2. Review Profiles & Portfolios',
     step2Desc: 'Inspect past work photos, government ID verification, and clear price rate-cards.',
     step3Title: '3. Direct Contact & Booking',
-    step3Desc: 'Call 8092195302 directly or chat on WhatsApp / Instagram @vickyvirat30. If call is busy, send a WhatsApp message anytime.',
+    step3Desc: 'Call 809219303 directly or chat on WhatsApp / Instagram @vickyvirat30. If call is busy, send a WhatsApp message anytime.',
     
     // Trust Badges
     trustHeading: 'Why Trust Vicky Seva Setu?',
@@ -67,9 +67,9 @@ export const translations = {
     trust2Title: 'Transparent Upfront Rates',
     trust2Desc: 'Clear service pricing before work begins. No hidden commissions.',
     trust3Title: 'Direct Customer-to-Worker Connection',
-    trust3Desc: 'Direct conversation and negotiations at 8092195302 with zero middlemen.',
+    trust3Desc: 'Direct conversation and negotiations at 809219303 with zero middlemen.',
     trust4Title: 'Dedicated Local Support',
-    trust4Desc: 'Direct call & WhatsApp support at 8092195302 • Instagram: @vickyvirat30. If busy, leave a WhatsApp message.',
+    trust4Desc: 'Direct call & WhatsApp support at 809219303 • Instagram: @vickyvirat30. If busy, leave a WhatsApp message.',
     
     // Provider Card
     experienceLabel: 'Experience:',
@@ -138,7 +138,7 @@ export const translations = {
     
     // Booking Form Modal
     bookServiceTitle: 'Service Request & Direct Contact',
-    bookServiceSubtitle: 'Submit your requirement or call directly at 8092195302 / WhatsApp if line is busy',
+    bookServiceSubtitle: 'Submit your requirement or call directly at 809219303 / WhatsApp if line is busy',
     fullName: 'Full Name',
     phoneNumber: 'Mobile Phone Number (10 digits)',
     emailAddress: 'Email Address (Optional)',
@@ -158,7 +158,7 @@ export const translations = {
     estimatedCost: 'Estimated Starting Cost:',
     confirmBookingBtn: 'Submit Request (No Advance Required)',
     bookingSuccessTitle: 'Service Request Sent Successfully!',
-    bookingSuccessDesc: 'Your request has been received. You can also directly call or WhatsApp at 8092195302 (Instagram: @vickyvirat30) if you need urgent service.',
+    bookingSuccessDesc: 'Your request has been received. You can also directly call or WhatsApp at 809219303 (Instagram: @vickyvirat30) if you need urgent service.',
     
     // Join as Provider Modal
     joinHeading: 'Join Vicky Seva Setu as a Service Professional',
@@ -192,10 +192,10 @@ export const translations = {
     actionUpdateStatus: 'Update Status',
     
     // Footer
-    footerDesc: 'India’s trusted local service discovery network connecting skilled technicians, artisans, and construction material providers in Bhurkunda, Ramgarh, Sayal, Saunda, Balkudra, Kurse, Cooperative, Saundaa Basti, Patratu, and surrounding regions directly with households and businesses. Direct Contact: 8092195302 • Instagram: @vickyvirat30.',
+    footerDesc: 'India’s trusted local service discovery network connecting skilled technicians, artisans, and construction material providers in Bhurkunda, Ramgarh, Sayal, Saunda, Balkudra, Kurse, Cooperative, Saundaa Basti, Patratu, and surrounding regions directly with households and businesses. Direct Contact: 809219303 • Instagram: @vickyvirat30.',
     quickLinks: 'Quick Links',
     supportAndHelpline: 'Direct Support & WhatsApp Helpline',
-    helplineNumber: '+91 8092195302 (Call / WhatsApp)',
+    helplineNumber: '+91 809219303 (Call / WhatsApp)',
     allRightsReserved: 'All rights reserved.',
     demoNotice: 'Direct local service platform for Bhurkunda, Ramgarh, Sayal, Saunda, Balkudra, Kurse, Cooperative, Saundaa Basti, Patratu & surrounding areas.'
   }

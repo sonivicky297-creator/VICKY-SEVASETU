@@ -43,11 +43,11 @@ export const AboutModal: React.FC<ModalProps> = ({ onClose }) => {
                 <ExternalLink className="w-3 h-3" />
               </a>
               <a
-                href="tel:8092195302"
+                href="tel:809219303"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-xs shadow-xs hover:bg-emerald-700 transition-colors"
               >
                 <Phone className="w-3.5 h-3.5" />
-                <span>Call: 8092195302</span>
+                <span>Call: 809219303</span>
               </a>
             </div>
           </div>
@@ -103,7 +103,7 @@ export const ContactModal: React.FC<ModalProps> = ({ onClose }) => {
           <div>
             <h3 className="text-xl font-bold">{t.contactUs} - Vicky Seva Setu</h3>
             <p className="text-xs text-slate-300">
-              Direct Helpline & WhatsApp: 8092195302 • Instagram: @vickyvirat30
+              Direct Helpline & WhatsApp: 809219303 • Instagram: @vickyvirat30
             </p>
           </div>
           <button onClick={onClose} className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white">
@@ -119,7 +119,7 @@ export const ContactModal: React.FC<ModalProps> = ({ onClose }) => {
                 Thank you! We will reach out to you shortly.
               </h4>
               <p className="text-xs text-slate-600">
-                For instant assistance, you can also call 8092195302 directly or WhatsApp anytime.
+                For instant assistance, you can also call 809219303 directly or WhatsApp anytime.
               </p>
               <button
                 onClick={onClose}
@@ -169,7 +169,7 @@ export const ContactModal: React.FC<ModalProps> = ({ onClose }) => {
                   <div>
                     <p className="font-semibold text-slate-800 flex items-center gap-1.5">
                       <Phone className="w-3.5 h-3.5 text-emerald-600" />
-                      Helpline: +91 8092195302 (Direct Call / WhatsApp)
+                      Helpline: +91 809219303 (Direct Call / WhatsApp)
                     </p>
                     <p className="text-[11px] text-amber-700 font-medium">
                       If call is busy, please drop a WhatsApp message!

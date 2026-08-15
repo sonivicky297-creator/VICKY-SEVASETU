@@ -62,7 +62,7 @@ export const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
 
   const category = categories.find(c => c.id === provider.categoryId);
 
-  const cleanPhone = provider.whatsapp?.replace(/[^0-9]/g, '') || '918092195302';
+  const cleanPhone = provider.whatsapp?.replace(/[^0-9]/g, '') || '91809219303';
   const whatsappMsg = encodeURIComponent(
     `Hello ${provider.name}, I viewed your profile on Vicky Seva Setu and want to inquire about booking your services in Bhurkunda / Ramgarh & nearby areas.`
   );

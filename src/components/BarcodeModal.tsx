@@ -64,7 +64,7 @@ export const SvgBarcode: React.FC<{
     return bars;
   };
 
-  const bars = generateBars(code || 'VSS-8092195302');
+  const bars = generateBars(code || 'VSS-809219303');
   const totalUnits = bars.reduce((acc, b) => acc + b.width, 0);
   const scale = width / totalUnits;
   let currentX = 0;
@@ -206,7 +206,7 @@ export const BarcodeModal: React.FC<BarcodeModalProps> = ({
   taskTitle,
   onClose,
 }) => {
-  const resolvedCode = provider?.barcode || initialCode || (provider ? `VSS-${provider.id.toUpperCase()}-${provider.phone.replace(/[^0-9]/g, '').slice(-4)}` : 'VSS-PAY-8092195302');
+  const resolvedCode = provider?.barcode || initialCode || (provider ? `VSS-${provider.id.toUpperCase()}-${provider.phone.replace(/[^0-9]/g, '').slice(-4)}` : 'VSS-PAY-809219303');
   const resolvedProviderName = provider?.name || providerName || 'Vicky Seva Setu Official';
   const resolvedTaskTitle = provider?.title || taskTitle || 'General Service & Direct Verification';
 
@@ -217,7 +217,7 @@ export const BarcodeModal: React.FC<BarcodeModalProps> = ({
   const [scanResult, setScanResult] = useState<string | null>(null);
   const [scanning, setScanning] = useState(false);
 
-  const upiId = '8092195302@upi';
+  const upiId = '809219303@upi';
   const upiPayString = `upi://pay?pa=${upiId}&pn=Vicky%20Seva%20Setu&cu=INR`;
 
   const handleCopy = (textToCopy: string, label: string) => {
@@ -349,14 +349,14 @@ export const BarcodeModal: React.FC<BarcodeModalProps> = ({
               {/* Direct helpline buttons */}
               <div className="grid grid-cols-2 gap-3 pt-1">
                 <a
-                  href="tel:8092195302"
+                  href="tel:809219303"
                   className="p-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs"
                 >
                   <Phone className="w-4 h-4" />
-                  <span>Call: 8092195302</span>
+                  <span>Call: 809219303</span>
                 </a>
                 <a
-                  href="https://wa.me/918092195302?text=Hello%20Vicky%20Seva%20Setu%2C%20I%20scanned%20the%20task%20barcode."
+                  href="https://wa.me/91809219303?text=Hello%20Vicky%20Seva%20Setu%2C%20I%20scanned%20the%20task%20barcode."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2.5 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors shadow-xs"
@@ -390,10 +390,10 @@ export const BarcodeModal: React.FC<BarcodeModalProps> = ({
                 <div className="bg-white p-3 rounded-xl border border-emerald-200 flex items-center justify-between text-xs">
                   <div className="text-left">
                     <p className="text-[10px] text-slate-500 font-medium">Direct UPI ID / Mobile:</p>
-                    <p className="font-mono font-bold text-slate-900 text-sm">8092195302@upi</p>
+                    <p className="font-mono font-bold text-slate-900 text-sm">809219303@upi</p>
                   </div>
                   <button
-                    onClick={() => handleCopy('8092195302@upi', 'UPI ID')}
+                    onClick={() => handleCopy('809219303@upi', 'UPI ID')}
                     className="px-2.5 py-1.5 rounded-lg bg-emerald-100 text-emerald-800 font-bold hover:bg-emerald-200 transition-colors flex items-center gap-1"
                   >
                     <Copy className="w-3 h-3" />
@@ -459,7 +459,7 @@ export const BarcodeModal: React.FC<BarcodeModalProps> = ({
         {/* Footer */}
         <div className="bg-slate-50 p-4 border-t border-slate-200 flex items-center justify-between shrink-0">
           <span className="text-xs text-slate-500 font-medium">
-            Helpline: <strong>8092195302</strong>
+            Helpline: <strong>809219303</strong>
           </span>
           <button
             onClick={onClose}

@@ -82,17 +82,17 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-2 sm:gap-3 text-slate-300 ml-auto">
             {/* Direct Call Link */}
             <a 
-              href="tel:8092195302" 
+              href="tel:809219303" 
               className="px-2.5 py-1 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1.5 transition-all text-xs shadow-xs"
               title="Call Directly"
             >
               <PhoneCall className="w-3.5 h-3.5" />
-              <span>Call: 8092195302</span>
+              <span>Call: 809219303</span>
             </a>
 
             {/* Direct WhatsApp Link */}
             <a
-              href="https://wa.me/918092195302?text=Hello%2C%20I%20need%20service%20in%20Bhurkunda%20%2F%20Ramgarh%20%2F%20Sayal%20%2F%20Saunda%20%2F%20Patratu%20area."
+              href="https://wa.me/91809219303?text=Hello%2C%20I%20need%20service%20in%20Bhurkunda%20%2F%20Ramgarh%20%2F%20Sayal%20%2F%20Saunda%20%2F%20Patratu%20area."
               target="_blank"
               rel="noopener noreferrer"
               className="px-2.5 py-1 rounded-md bg-green-600 hover:bg-green-500 text-white font-bold flex items-center gap-1.5 transition-all text-xs shadow-xs"

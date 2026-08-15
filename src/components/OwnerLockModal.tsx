@@ -253,7 +253,7 @@ export const OwnerLockModal: React.FC<OwnerLockModalProps> = ({ onClose, onSucce
                 </div>
                 <div className="flex items-center gap-1.5 text-slate-700">
                   <Smartphone className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Helpline / Phone: 8092195302 (Default PIN: 8092)</span>
+                  <span>Helpline / Phone: 809219303 (Default PIN: 8092)</span>
                 </div>
               </div>
 
