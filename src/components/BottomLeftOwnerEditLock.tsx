@@ -12,10 +12,10 @@ export const BottomLeftOwnerEditLock: React.FC = () => {
 
   const [timeLeft, setTimeLeft] = useState<number>(0);
 
-  // When owner becomes authenticated, start 30-second countdown timer
+  // When owner becomes authenticated, start 2-minute (120s) countdown timer
   useEffect(() => {
     if (isOwnerAuthenticated) {
-      setTimeLeft(30);
+      setTimeLeft(120);
     } else {
       setTimeLeft(0);
     }
@@ -30,7 +30,7 @@ export const BottomLeftOwnerEditLock: React.FC = () => {
         if (prev <= 1) {
           clearInterval(timer);
           lockOwnerAccess();
-          addToast('🔒 Auto-Locked: 30-Second Edit Session Expired.', 'info');
+          addToast('🔒 Auto-Locked: 2-Minute Edit Session Expired.', 'info');
           return 0;
         }
         return prev - 1;
@@ -41,8 +41,17 @@ export const BottomLeftOwnerEditLock: React.FC = () => {
   }, [isOwnerAuthenticated, timeLeft, lockOwnerAccess, addToast]);
 
   const handleExtendTimer = () => {
-    setTimeLeft(30);
-    addToast('⏱️ Edit Access Extended by 30 Seconds!', 'success');
+    setTimeLeft(120);
+    addToast('⏱️ Edit Access Extended by 2 Minutes!', 'success');
+  };
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    if (mins > 0) {
+      return `${mins}m ${secs < 10 ? '0' : ''}${secs}s`;
+    }
+    return `${secs}s`;
   };
 
   return (
@@ -63,16 +72,16 @@ export const BottomLeftOwnerEditLock: React.FC = () => {
               <span>Edit & Lock</span>
             </div>
             <p className="text-[10px] text-slate-400 font-medium leading-none mt-0.5">
-              Owner Only (30s Auto-Lock)
+              Owner Only (2m Auto-Lock)
             </p>
           </div>
         </button>
       ) : (
         <div className="flex items-center gap-2 bg-slate-900/95 backdrop-blur-md text-white p-2 pl-3 rounded-2xl border border-emerald-500/40 shadow-2xl animate-fade-in">
-          {/* Unlock Status & 30s Timer Countdown */}
+          {/* Unlock Status & 2m Timer Countdown */}
           <div className="flex items-center gap-2">
-            <div className="relative flex items-center justify-center w-8 h-7 rounded-xl bg-emerald-500/20 text-emerald-400 font-mono font-bold text-xs">
-              <span className="animate-pulse">{timeLeft}s</span>
+            <div className="relative flex items-center justify-center min-w-10 h-7 px-1.5 rounded-xl bg-emerald-500/20 text-emerald-400 font-mono font-bold text-xs">
+              <span className="animate-pulse">{formatTime(timeLeft)}</span>
             </div>
             <div className="text-left pr-1">
               <div className="text-xs font-black text-emerald-400 flex items-center gap-1">
@@ -80,19 +89,19 @@ export const BottomLeftOwnerEditLock: React.FC = () => {
                 <span>Unlocked (Owner)</span>
               </div>
               <p className="text-[10px] text-slate-300 font-medium">
-                Auto-locking in {timeLeft} seconds
+                Auto-locking in {formatTime(timeLeft)}
               </p>
             </div>
           </div>
 
-          {/* Extend 30s Button */}
+          {/* Extend 2m Button */}
           <button
             onClick={handleExtendTimer}
             className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-300 hover:text-white transition-colors text-xs font-bold flex items-center gap-1 border border-slate-700"
-            title="Extend Edit Access for 30 More Seconds"
+            title="Extend Edit Access for 2 More Minutes"
           >
             <RefreshCw className="w-3.5 h-3.5" />
-            <span className="text-[10px] hidden sm:inline">+30s</span>
+            <span className="text-[10px] hidden sm:inline">+2m</span>
           </button>
 
           {/* Lock Now Button */}
