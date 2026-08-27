@@ -19,6 +19,7 @@ import { TaskImageEditorModal } from './components/TaskImageEditorModal';
 import { EditProviderModal } from './components/EditProviderModal';
 import { OwnerLockModal } from './components/OwnerLockModal';
 import { BottomLeftOwnerEditLock } from './components/BottomLeftOwnerEditLock';
+import { MobileBottomNav } from './components/MobileBottomNav';
 import { Footer } from './components/Footer';
 import { ToastContainer } from './components/ToastContainer';
 import { Category, ServiceProvider } from './types';
@@ -232,6 +233,9 @@ const MainAppContent: React.FC = () => {
 
       {/* Bottom Left Floating Owner Lock / 30-Second Timer Widget */}
       <BottomLeftOwnerEditLock />
+
+      {/* Sticky Mobile Bottom Navigation Bar (Home, Back, Services, Bookings, Lock) */}
+      <MobileBottomNav onOpenBookings={() => setBookingsModalOpen(true)} />
 
       {/* Global Toast System */}
       <ToastContainer />

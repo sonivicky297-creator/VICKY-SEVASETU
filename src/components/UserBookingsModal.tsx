@@ -4,7 +4,8 @@ import {
   CalendarCheck, 
   Clock, 
   MapPin, 
-  Phone
+  Phone,
+  ArrowLeft
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { RequestStatus } from '../types';
@@ -56,24 +57,34 @@ export const UserBookingsModal: React.FC<UserBookingsModalProps> = ({ onClose })
       <div className="bg-white w-full max-w-3xl rounded-3xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
         
         {/* Header */}
-        <div className="bg-gradient-to-r from-slate-900 to-slate-800 p-6 text-white shrink-0 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/30">
+        <div className="bg-gradient-to-r from-slate-900 to-slate-800 p-4 sm:p-6 text-white shrink-0 flex items-center justify-between">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <button
+              onClick={onClose}
+              id="back-user-bookings-btn"
+              className="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition-colors shadow-xs"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>पीछे (Back)</span>
+            </button>
+            
+            <div className="hidden sm:flex w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 items-center justify-center border border-amber-500/30">
               <CalendarCheck className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="text-lg font-bold">
+              <h3 className="text-sm sm:text-lg font-bold">
                 {t.myBookings}
               </h3>
-              <p className="text-xs text-slate-300">
-                {requests.length} service requests on record
+              <p className="text-[11px] text-slate-300">
+                {requests.length} service requests
               </p>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+            id="close-user-bookings-btn"
+            className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>

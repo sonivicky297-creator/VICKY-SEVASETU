@@ -46,7 +46,7 @@ export const BottomLeftOwnerEditLock: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-5 left-5 z-50 flex items-center gap-2">
+    <div className="fixed bottom-16 sm:bottom-5 left-3 sm:left-5 z-40 flex items-center gap-2">
       {!isOwnerAuthenticated ? (
         <button
           onClick={() => openOwnerUnlockModal()}

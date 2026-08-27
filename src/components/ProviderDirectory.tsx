@@ -13,7 +13,9 @@ import {
   Columns2, 
   Navigation, 
   Crosshair, 
-  ChevronRight 
+  ChevronRight,
+  Home,
+  ArrowLeft
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { ProviderCard } from './ProviderCard';
@@ -44,7 +46,8 @@ export const ProviderDirectory: React.FC = () => {
     setViewMode,
     addToast,
     canEditDocument,
-    openOwnerUnlockModal
+    openOwnerUnlockModal,
+    setCurrentTab
   } = useApp();
 
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
@@ -199,6 +202,38 @@ export const ProviderDirectory: React.FC = () => {
     <div className="bg-slate-50 min-h-screen py-6 sm:py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
+        {/* Navigation Bar / Back to Home Banner */}
+        <div className="flex items-center justify-between bg-gradient-to-r from-slate-900 to-slate-800 text-white p-3 sm:p-4 rounded-2xl shadow-md mb-4 sm:mb-6">
+          <button
+            type="button"
+            onClick={() => {
+              resetFilters();
+              setCurrentTab('home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            id="directory-back-to-home-btn"
+            className="flex items-center gap-2 px-3 sm:px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs sm:text-sm shadow-xs transition-all active:scale-95"
+          >
+            <ArrowLeft className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+            <span>होम पेज पर जाएं (Back to Home)</span>
+          </button>
+
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                resetFilters();
+                setCurrentTab('home');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 flex items-center gap-1.5 transition-colors"
+            >
+              <Home className="w-3.5 h-3.5 text-amber-400" />
+              <span className="hidden sm:inline">होम (Home)</span>
+            </button>
+          </div>
+        </div>
+
         {/* Top Header Banner */}
         <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-xs mb-6 sm:mb-8">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">

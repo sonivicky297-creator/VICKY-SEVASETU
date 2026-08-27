@@ -15,7 +15,8 @@ import {
   Unlock,
   KeyRound,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Home
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
@@ -135,16 +136,38 @@ export const Navbar: React.FC<NavbarProps> = ({
           
           {/* Logo & Navigation Controls */}
           <div className="flex items-center gap-2 sm:gap-4">
-            {/* Back & Forward History Controls */}
+            {/* Back, Home & Forward History Controls */}
             <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200/80 shadow-2xs shrink-0">
               <button
                 type="button"
-                onClick={() => window.history.back()}
+                onClick={() => {
+                  if (currentTab === 'directory') {
+                    handleNavClick('home');
+                  } else {
+                    window.history.back();
+                  }
+                }}
                 id="nav-back-button"
-                className="p-1.5 sm:p-2 rounded-lg text-slate-700 hover:bg-white hover:text-amber-600 hover:shadow-xs transition-all active:scale-95"
-                title="Go Back Page"
+                className="p-1.5 sm:p-2 rounded-lg text-slate-700 hover:bg-white hover:text-amber-600 hover:shadow-xs transition-all active:scale-95 flex items-center gap-1"
+                title="Go Back / पीछे जाएं"
               >
                 <ChevronLeft className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+                <span className="text-xs font-bold text-slate-700 hidden sm:inline">पीछे</span>
+              </button>
+              <span className="w-px h-4 bg-slate-200"></span>
+              <button
+                type="button"
+                onClick={() => handleNavClick('home')}
+                id="nav-home-shortcut-button"
+                className={`p-1.5 sm:p-2 rounded-lg transition-all active:scale-95 flex items-center gap-1 ${
+                  currentTab === 'home'
+                    ? 'bg-amber-600 text-white font-bold shadow-xs'
+                    : 'text-slate-700 hover:bg-white hover:text-amber-600'
+                }`}
+                title="Go to Home Page / होम पेज"
+              >
+                <Home className="w-4 h-4" />
+                <span className="text-xs font-bold hidden sm:inline">होम</span>
               </button>
               <span className="w-px h-4 bg-slate-200"></span>
               <button
@@ -152,7 +175,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => window.history.forward()}
                 id="nav-forward-button"
                 className="p-1.5 sm:p-2 rounded-lg text-slate-700 hover:bg-white hover:text-amber-600 hover:shadow-xs transition-all active:scale-95"
-                title="Go Forward Page"
+                title="Go Forward Page / आगे जाएं"
               >
                 <ChevronRight className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
               </button>

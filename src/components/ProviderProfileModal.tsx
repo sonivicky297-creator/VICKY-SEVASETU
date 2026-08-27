@@ -15,7 +15,9 @@ import {
   Info,
   Barcode as BarcodeIcon,
   Sparkles,
-  Edit3
+  Edit3,
+  ArrowLeft,
+  Home
 } from 'lucide-react';
 import { ServiceProvider } from '../types';
 import { useApp } from '../context/AppContext';
@@ -116,15 +118,26 @@ export const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
       <div className="bg-white w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
         
         {/* Modal Top Header with Cover Banner & Close Button */}
-        <div className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-amber-950 p-6 sm:p-8 text-white shrink-0">
-          <button
-            onClick={onClose}
-            id="close-provider-profile-btn"
-            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-            aria-label="Close modal"
-          >
-            <X className="w-5 h-5" />
-          </button>
+        <div className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-amber-950 p-5 sm:p-8 text-white shrink-0">
+          <div className="flex items-center justify-between mb-4">
+            <button
+              onClick={onClose}
+              id="back-provider-profile-btn"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition-colors shadow-xs"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>पीछे जाएं (Back)</span>
+            </button>
+
+            <button
+              onClick={onClose}
+              id="close-provider-profile-btn"
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors flex items-center gap-1 text-xs font-semibold"
+              aria-label="Close modal"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
             {/* Large Avatar */}
