@@ -46,12 +46,12 @@ export const BottomLeftOwnerEditLock: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-5 left-5 z-50 flex items-center gap-2">
+    <div className="fixed bottom-3 left-3 sm:bottom-5 sm:left-5 z-50 flex items-center gap-2 max-w-[calc(100vw-1.5rem)]">
       {!isOwnerAuthenticated ? (
         <button
           onClick={() => openOwnerUnlockModal()}
           id="bottom-left-lock-btn"
-          className="group relative flex items-center gap-2 px-3.5 py-2.5 rounded-2xl bg-slate-900/95 hover:bg-slate-900 text-white shadow-xl hover:shadow-amber-500/10 border border-slate-700/80 transition-all duration-300 hover:scale-105 active:scale-95"
+          className="group relative flex items-center gap-2 px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-2xl bg-slate-900/95 hover:bg-slate-900 text-white shadow-xl hover:shadow-amber-500/10 border border-slate-700/80 transition-all duration-300 hover:scale-105 active:scale-95"
           title="Owner Edit & Lock (Requires Password)"
         >
           <div className="w-7 h-7 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400 group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">

@@ -15,7 +15,8 @@ import {
   Unlock,
   KeyRound,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Home
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
@@ -56,6 +57,15 @@ export const Navbar: React.FC<NavbarProps> = ({
     setCurrentTab(tab);
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackClick = () => {
+    if (currentTab !== 'home') {
+      setCurrentTab('home');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.history.back();
+    }
   };
 
   const handleAllServicesClick = () => {
@@ -135,18 +145,38 @@ export const Navbar: React.FC<NavbarProps> = ({
           
           {/* Logo & Navigation Controls */}
           <div className="flex items-center gap-2 sm:gap-4">
-            {/* Back & Forward History Controls */}
-            <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200/80 shadow-2xs shrink-0">
+            {/* Back, Home & Forward History Controls */}
+            <div className="flex items-center gap-0.5 sm:gap-1 bg-slate-100 p-0.5 sm:p-1 rounded-xl border border-slate-200/80 shadow-2xs shrink-0">
               <button
                 type="button"
-                onClick={() => window.history.back()}
+                onClick={handleBackClick}
                 id="nav-back-button"
-                className="p-1.5 sm:p-2 rounded-lg text-slate-700 hover:bg-white hover:text-amber-600 hover:shadow-xs transition-all active:scale-95"
-                title="Go Back Page"
+                className="p-1.5 sm:p-2 rounded-lg text-slate-700 hover:bg-white hover:text-amber-600 hover:shadow-xs transition-all active:scale-95 flex items-center gap-1 font-bold text-xs"
+                title="Go Back Page / Home"
               >
                 <ChevronLeft className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
+                <span className="hidden lg:inline">Back</span>
               </button>
-              <span className="w-px h-4 bg-slate-200"></span>
+
+              <span className="w-px h-3.5 sm:h-4 bg-slate-200"></span>
+
+              <button
+                type="button"
+                onClick={() => handleNavClick('home')}
+                id="nav-home-button"
+                className={`p-1.5 sm:p-2 rounded-lg font-bold text-xs transition-all active:scale-95 flex items-center gap-1 ${
+                  currentTab === 'home'
+                    ? 'bg-amber-600 text-white shadow-xs'
+                    : 'text-slate-700 hover:bg-white hover:text-amber-600'
+                }`}
+                title="Home Page (होम पेज)"
+              >
+                <Home className="w-4 h-4" />
+                <span className="hidden sm:inline">Home</span>
+              </button>
+
+              <span className="w-px h-3.5 sm:h-4 bg-slate-200"></span>
+
               <button
                 type="button"
                 onClick={() => window.history.forward()}
@@ -349,20 +379,24 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex flex-col gap-1.5 pt-1">
             <button
               onClick={() => handleNavClick('home')}
-              className={`text-left px-3 py-2 rounded-md text-sm font-medium ${
-                currentTab === 'home' ? 'bg-amber-50 text-amber-700 font-semibold' : 'text-slate-800'
+              className={`text-left px-3.5 py-2.5 rounded-xl text-sm font-bold flex items-center gap-2 transition-all ${
+                currentTab === 'home' 
+                  ? 'bg-amber-600 text-white shadow-md shadow-amber-600/20' 
+                  : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
               }`}
             >
-              {t.home}
+              <Home className="w-4.5 h-4.5" />
+              <span>Home Page (होम पेज पर जाएँ)</span>
             </button>
 
             <button
               onClick={handleAllServicesClick}
-              className={`text-left px-3 py-2 rounded-md text-sm font-medium ${
-                currentTab === 'directory' ? 'bg-amber-50 text-amber-700 font-semibold' : 'text-slate-800'
+              className={`text-left px-3.5 py-2 rounded-xl text-sm font-semibold flex items-center gap-2 ${
+                currentTab === 'directory' ? 'bg-amber-50 text-amber-700 font-bold border border-amber-200' : 'text-slate-800 hover:bg-slate-50'
               }`}
             >
-              {t.allServices}
+              <Search className="w-4 h-4 text-amber-600" />
+              <span>{t.allServices}</span>
             </button>
 
             <button
