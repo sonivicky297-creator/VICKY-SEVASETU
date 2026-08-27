@@ -353,6 +353,37 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-5 space-y-3 shadow-lg">
+          {/* Mobile Direct Navigation Buttons */}
+          <div className="grid grid-cols-2 gap-2 pb-1 border-b border-slate-100">
+            <button
+              onClick={() => {
+                resetFilters();
+                handleNavClick('home');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              id="mobile-drawer-home-btn"
+              className="py-2.5 px-3 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-black flex items-center justify-center gap-1.5 shadow-xs transition-colors"
+            >
+              <Home className="w-4 h-4" />
+              <span>होम (Go Home)</span>
+            </button>
+            <button
+              onClick={() => {
+                if (currentTab === 'directory') {
+                  handleNavClick('home');
+                } else {
+                  window.history.back();
+                }
+                setMobileMenuOpen(false);
+              }}
+              id="mobile-drawer-back-btn"
+              className="py-2.5 px-3 bg-slate-900 hover:bg-slate-800 text-amber-400 rounded-xl text-xs font-black flex items-center justify-center gap-1.5 transition-colors"
+            >
+              <ChevronLeft className="w-4 h-4 text-amber-400" />
+              <span>पीछे (Go Back)</span>
+            </button>
+          </div>
+
           {/* Mobile City Selector */}
           <div className="flex items-center gap-2 bg-slate-100 rounded-lg p-2.5">
             <MapPin className="w-4 h-4 text-amber-600 shrink-0" />

@@ -13,7 +13,9 @@ import {
   Barcode as BarcodeIcon,
   Image as ImageIcon,
   Sparkles,
-  Edit3
+  Edit3,
+  ArrowLeft,
+  Home
 } from 'lucide-react';
 import { Category, ServiceProvider } from '../types';
 import { useApp } from '../context/AppContext';
@@ -61,19 +63,30 @@ export const TaskTeamModal: React.FC<TaskTeamModalProps> = ({
       <div className="bg-white rounded-3xl max-w-5xl w-full overflow-hidden shadow-2xl border border-slate-200 flex flex-col max-h-[92vh]">
         
         {/* Header */}
-        <div className={`bg-gradient-to-r ${category.color || 'from-slate-900 to-slate-800'} p-6 text-white shrink-0 flex items-center justify-between`}>
-          <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-xs flex items-center justify-center text-white shadow-xs">
+        <div className={`bg-gradient-to-r ${category.color || 'from-slate-900 to-slate-800'} p-4 sm:p-6 text-white shrink-0 flex items-center justify-between`}>
+          <div className="flex items-center gap-2 sm:gap-3.5">
+            <button
+              type="button"
+              onClick={onClose}
+              id="team-modal-back-btn"
+              className="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs flex items-center gap-1.5 shadow-xs transition-colors shrink-0"
+              title="Back to Home / होम पेज पर जाएं"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span>पीछे (Back)</span>
+            </button>
+
+            <div className="hidden sm:flex w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-xs items-center justify-center text-white shadow-xs">
               {renderCategoryIcon(category.iconName, { className: "w-6 h-6" })}
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-xl font-black">{category.name}</h3>
-                <span className="px-2.5 py-0.5 rounded-full bg-white/25 text-white font-extrabold text-xs uppercase tracking-wider">
-                  {assignedProviders.length} Assigned Specialists
+                <h3 className="text-base sm:text-xl font-black">{category.name}</h3>
+                <span className="px-2 py-0.5 rounded-full bg-white/25 text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider">
+                  {assignedProviders.length} Team
                 </span>
               </div>
-              <p className="text-xs text-white/85 mt-0.5">
+              <p className="text-[11px] sm:text-xs text-white/85 mt-0.5 hidden sm:block">
                 Verified trade team across Bhurkunda, Ramgarh, Sayal, Saunda, Patratu & surrounding areas
               </p>
             </div>
@@ -81,6 +94,7 @@ export const TaskTeamModal: React.FC<TaskTeamModalProps> = ({
 
           <button
             onClick={onClose}
+            id="team-modal-close-btn"
             className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
           >
             <X className="w-5 h-5" />
