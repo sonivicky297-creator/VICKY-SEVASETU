@@ -546,7 +546,7 @@ export const ProviderProfileModal: React.FC<ProviderProfileModalProps> = ({
                         type="text"
                         value={newReviewCity}
                         onChange={(e) => setNewReviewCity(e.target.value)}
-                        placeholder="e.g. Bahadurgarh Sector 6"
+                        placeholder="e.g. Bhurkunda Main Market"
                         className="w-full p-2.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-hidden focus:border-amber-500"
                       />
                     </div>

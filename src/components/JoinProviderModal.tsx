@@ -168,7 +168,7 @@ export const JoinProviderModal: React.FC<JoinProviderModalProps> = ({ onClose })
               <div className="bg-amber-50 rounded-2xl p-3.5 border border-amber-200 text-xs text-amber-900 flex items-center gap-2.5">
                 <ShieldCheck className="w-5 h-5 text-amber-700 shrink-0" />
                 <span>
-                  100% Free listing in Bahadurgarh & Ramgarh with 0% commission. You receive full payment directly from customers.
+                  100% Free listing in Bhurkunda & Ramgarh with 0% commission. You receive full payment directly from customers.
                 </span>
               </div>
 

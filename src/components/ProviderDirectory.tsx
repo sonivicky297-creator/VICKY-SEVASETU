@@ -259,7 +259,7 @@ export const ProviderDirectory: React.FC = () => {
               </div>
 
               <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Local Service Providers in Bahadurgarh & Ramgarh
+                Local Service Providers in Bhurkunda & Ramgarh
               </h1>
               
               <p className="text-sm text-slate-500 mt-1">
@@ -650,7 +650,7 @@ export const ProviderDirectory: React.FC = () => {
             </div>
 
             <p className="text-xs text-slate-500 mt-2">
-              Select your nearest locality in Bahadurgarh & Ramgarh to find closest professionals and real road distances:
+              Select your nearest locality in Bhurkunda & Ramgarh to find closest professionals and real road distances:
             </p>
 
             <div className="mt-4 space-y-1.5 max-h-72 overflow-y-auto pr-1">

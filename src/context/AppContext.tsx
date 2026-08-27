@@ -358,7 +358,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           userCity: newProvData.location.city,
           rating: 5,
           date: new Date().toISOString().split('T')[0],
-          comment: 'ID and trade credentials successfully verified for Bahadurgarh & Ramgarh region.',
+          comment: 'ID and trade credentials successfully verified for Bhurkunda & Ramgarh region.',
           serviceDone: 'Profile Verification',
           serviceDoneEn: 'Profile Verification'
         }

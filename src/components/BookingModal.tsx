@@ -86,7 +86,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ provider, onClose })
 
   const cleanPhone = provider.whatsapp?.replace(/[^0-9]/g, '') || '919876543210';
   const whatsappMsg = encodeURIComponent(
-    `Hello ${provider.name}, I submitted request #${bookingSuccessId || ''} on SevaSetu for ${currentSelectedOffer?.name || 'service'} in Bahadurgarh / Ramgarh.`
+    `Hello ${provider.name}, I submitted request #${bookingSuccessId || ''} on SevaSetu for ${currentSelectedOffer?.name || 'service'} in Bhurkunda / Ramgarh.`
   );
 
   return (

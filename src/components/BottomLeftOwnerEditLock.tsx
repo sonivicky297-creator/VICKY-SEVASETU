@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Lock, Unlock, Clock, ShieldCheck, Edit3, KeyRound, RefreshCw } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
@@ -11,6 +11,7 @@ export const BottomLeftOwnerEditLock: React.FC = () => {
   } = useApp();
 
   const [timeLeft, setTimeLeft] = useState<number>(0);
+  const prevTimeLeftRef = useRef(timeLeft);
 
   // When owner becomes authenticated, start 2-minute (120s) countdown timer
   useEffect(() => {
@@ -26,18 +27,19 @@ export const BottomLeftOwnerEditLock: React.FC = () => {
     if (!isOwnerAuthenticated || timeLeft <= 0) return;
 
     const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          lockOwnerAccess();
-          addToast('🔒 Auto-Locked: 2-Minute Edit Session Expired.', 'info');
-          return 0;
-        }
-        return prev - 1;
-      });
+      setTimeLeft((prev) => Math.max(0, prev - 1));
     }, 1000);
 
     return () => clearInterval(timer);
+  }, [isOwnerAuthenticated, timeLeft]);
+
+  // Handle auto-lock effect when timer expires from >0 to 0
+  useEffect(() => {
+    if (isOwnerAuthenticated && prevTimeLeftRef.current > 0 && timeLeft === 0) {
+      lockOwnerAccess();
+      addToast('🔒 Auto-Locked: 2-Minute Edit Session Expired.', 'info');
+    }
+    prevTimeLeftRef.current = timeLeft;
   }, [isOwnerAuthenticated, timeLeft, lockOwnerAccess, addToast]);
 
   const handleExtendTimer = () => {

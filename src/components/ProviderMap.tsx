@@ -86,7 +86,7 @@ export const ProviderMap: React.FC<ProviderMapProps> = ({
     if (!mapContainerRef.current) return;
     if (mapInstanceRef.current) return;
 
-    const defaultCityInfo = CITY_COORDINATES[selectedCity] || CITY_COORDINATES['Bahadurgarh'] || { lat: 28.6924, lng: 76.9249, zoom: 13 };
+    const defaultCityInfo = CITY_COORDINATES[selectedCity] || CITY_COORDINATES['Bhurkunda'] || { lat: 23.6420, lng: 85.3520, zoom: 13 };
     const initialCenter: [number, number] = userLocation 
       ? [userLocation.lat, userLocation.lng] 
       : [defaultCityInfo.lat, defaultCityInfo.lng];
