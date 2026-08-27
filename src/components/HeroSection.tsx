@@ -78,75 +78,75 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearchSubmit }) => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 text-white pt-8 sm:pt-12 pb-16 sm:pb-20">
+    <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800 text-white pt-4 sm:pt-10 pb-12 sm:pb-16">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fbbf24_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Direct Helpline & Social Banner (Highlighted Top Banner) */}
-        <div className="max-w-5xl mx-auto mb-6 p-4 rounded-2xl bg-gradient-to-r from-emerald-950/90 via-slate-900 to-pink-950/90 border border-emerald-500/40 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-4 text-center lg:text-left">
-          <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center shrink-0">
-              <PhoneCall className="w-6 h-6 animate-pulse" />
+        <div className="max-w-5xl mx-auto mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-emerald-950/90 via-slate-900 to-pink-950/90 border border-emerald-500/40 shadow-xl flex flex-col lg:flex-row items-center justify-between gap-3 text-center lg:text-left">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center shrink-0">
+              <PhoneCall className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" />
             </div>
             <div>
-              <div className="flex items-center justify-center lg:justify-start gap-2">
-                <span className="text-xs font-extrabold uppercase tracking-wider text-emerald-400">Vicky Seva Setu Direct Support</span>
-                <span className="text-[10px] bg-emerald-500 text-slate-950 font-black px-1.5 py-0.2 rounded-full">ACTIVE</span>
+              <div className="flex items-center justify-center lg:justify-start gap-1.5">
+                <span className="text-[11px] sm:text-xs font-extrabold uppercase tracking-wider text-emerald-400">Vicky Seva Setu Direct Support</span>
+                <span className="text-[9px] sm:text-[10px] bg-emerald-500 text-slate-950 font-black px-1.5 py-0.2 rounded-full">ACTIVE</span>
               </div>
-              <p className="text-sm font-semibold text-white mt-0.5">
-                Call / WhatsApp: <span className="text-amber-300 font-extrabold tracking-wide text-base">8092195302</span> • <span className="text-pink-300 font-medium">Instagram: @vickyvirat30</span>
+              <p className="text-xs sm:text-sm font-semibold text-white mt-0.5">
+                Call / WhatsApp: <span className="text-amber-300 font-extrabold tracking-wide text-sm sm:text-base">8092195302</span> • <span className="text-pink-300 font-medium text-xs sm:text-sm">Insta: @vickyvirat30</span>
               </p>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-2 shrink-0">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 shrink-0 w-full sm:w-auto">
             <a
               href="tel:8092195302"
-              className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-md transition-all hover:scale-105"
+              className="flex-1 sm:flex-initial px-3 py-1.5 sm:py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1 shadow-md transition-all active:scale-95"
             >
-              <Phone className="w-4 h-4" />
+              <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>Call 8092195302</span>
             </a>
             <a
               href="https://wa.me/918092195302?text=Hello%2C%20I%20need%20service%20in%20Bhurkunda%20%2F%20Ramgarh%20%2F%20Sayal%20%2F%20Saunda%20%2F%20Patratu%20area."
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-2 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-md transition-all hover:scale-105"
+              className="flex-1 sm:flex-initial px-3 py-1.5 sm:py-2 rounded-xl bg-green-600 hover:bg-green-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1 shadow-md transition-all active:scale-95"
             >
-              <MessageSquare className="w-4 h-4" />
+              <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>WhatsApp</span>
             </a>
             <a
               href="https://www.instagram.com/vickyvirat30?igsh=ZzAwZDFpcWRwaWVq"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-90 text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-md transition-all hover:scale-105"
+              className="w-full sm:w-auto px-3 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:opacity-90 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-1 shadow-md transition-all active:scale-95"
             >
-              <Instagram className="w-4 h-4" />
+              <Instagram className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>Instagram: @vickyvirat30</span>
             </a>
           </div>
         </div>
 
         {/* Main Hero Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide">
-            <ShieldCheck className="w-4 h-4 text-amber-400" />
+        <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[11px] sm:text-sm font-semibold tracking-wide">
+            <ShieldCheck className="w-3.5 h-3.5 text-amber-400 shrink-0" />
             <span>Local Service Providers in Bhurkunda, Ramgarh & Surrounding Coal Belt Areas</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
             {t.heroTitlePart1} <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-200">
               {t.heroTitlePart2}
             </span>
           </h1>
 
-          <p className="text-slate-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-300 text-xs sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             {t.heroSubtitle}
           </p>
         </div>
