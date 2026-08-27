@@ -13,7 +13,15 @@ import {
   GraduationCap,
   Car,
   Smile,
-  HelpCircle,
+  Scissors,
+  Truck,
+  Building2,
+  ShieldCheck,
+  Utensils,
+  Users,
+  Briefcase,
+  Droplets,
+  HelpCircle
 } from 'lucide-react';
 
 export const renderCategoryIcon = (iconName: string, props: React.ComponentProps<typeof Wrench> = { className: "w-6 h-6" }) => {
@@ -38,7 +46,8 @@ export const renderCategoryIcon = (iconName: string, props: React.ComponentProps
       return <Boxes {...props} />;
     case 'trowel':
     case 'mason':
-      return <Hammer {...props} />;
+    case 'building2':
+      return <Building2 {...props} />;
     case 'camera':
       return <Camera {...props} />;
     case 'graduationcap':
@@ -46,7 +55,25 @@ export const renderCategoryIcon = (iconName: string, props: React.ComponentProps
     case 'car':
       return <Car {...props} />;
     case 'smile':
-      return <Smile {...props} />;
+    case 'scissors':
+      return <Scissors {...props} />;
+    case 'truck':
+      return <Truck {...props} />;
+    case 'shieldcheck':
+    case 'shield':
+      return <ShieldCheck {...props} />;
+    case 'utensils':
+    case 'catering':
+      return <Utensils {...props} />;
+    case 'users':
+    case 'labor':
+      return <Users {...props} />;
+    case 'briefcase':
+      return <Briefcase {...props} />;
+    case 'droplets':
+    case 'droplet':
+    case 'ro':
+      return <Droplets {...props} />;
     default:
       return <Wrench {...props} />;
   }

@@ -19,7 +19,8 @@ import {
   FileText,
   ShieldCheck,
   Eye,
-  ExternalLink
+  ExternalLink,
+  Trash2
 } from 'lucide-react';
 import { ServiceProvider, Category } from '../types';
 import { useApp } from '../context/AppContext';
@@ -58,8 +59,16 @@ export const EditProviderModal: React.FC<EditProviderModalProps> = ({
   onClose,
   onSaved
 }) => {
-  const { updateProvider, categories, cities, addToast } = useApp();
+  const { updateProvider, deleteProvider, categories, cities, addToast } = useApp();
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleDeleteProvider = () => {
+    if (window.confirm(`क्या आप सचमुच '${provider.name}' की प्रोफाइल/सर्विस हटाना चाहते हैं? (Delete this service?)`)) {
+      deleteProvider(provider.id);
+      addToast(`🗑️ সার্ভিস '${provider.name}' हटा दी गई (Service deleted)`, 'info');
+      onClose();
+    }
+  };
 
   // 1. His Name
   const [name, setName] = useState(provider.name);
@@ -687,20 +696,31 @@ export const EditProviderModal: React.FC<EditProviderModalProps> = ({
         <div className="p-4 sm:p-5 bg-slate-50 border-t border-slate-200 shrink-0 flex items-center justify-between gap-3">
           <button
             type="button"
-            onClick={onClose}
-            className="px-5 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 text-xs font-bold transition-colors"
+            onClick={handleDeleteProvider}
+            className="px-4 py-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 border border-rose-300 text-rose-700 hover:text-rose-800 text-xs font-bold flex items-center gap-1.5 transition-colors"
           >
-            Cancel
+            <Trash2 className="w-4 h-4" />
+            <span>सर्विस हटाएं (Delete Service)</span>
           </button>
 
-          <button
-            type="button"
-            onClick={handleSubmit}
-            className="px-7 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs sm:text-sm font-extrabold flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
-          >
-            <Save className="w-4 h-4" />
-            <span>Save All 9 Changes</span>
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-4 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-100 text-slate-700 text-xs font-bold transition-colors"
+            >
+              रद्द करें
+            </button>
+
+            <button
+              type="button"
+              onClick={handleSubmit}
+              className="px-6 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-xs sm:text-sm font-extrabold flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
+            >
+              <Save className="w-4 h-4" />
+              <span>सेव करें (Save Changes)</span>
+            </button>
+          </div>
         </div>
 
       </div>

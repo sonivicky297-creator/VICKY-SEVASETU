@@ -208,6 +208,206 @@ export const INITIAL_CATEGORIES: Category[] = [
       { id: 'sub-mat-4', name: 'Grade 1 Red Clay Bricks', avgPrice: 8, unit: 'per brick (1000 min)' },
       { id: 'sub-mat-5', name: 'Stone Aggregate (10mm / 20mm)', avgPrice: 42, unit: 'per sq.ft' }
     ]
+  },
+  {
+    id: 'cat-welder',
+    slug: 'welding-fabrication',
+    name: 'Welding & Iron Fabrication (वेल्डिंग & लोहा ग्रिल)',
+    nameEn: 'Welding & Iron Fabrication',
+    iconName: 'ShieldCheck',
+    description: 'Main safety gates, window grills, tin shed roofing, SS staircase railing & arc welding',
+    descriptionEn: 'Main safety gates, window grills, tin shed roofing, SS staircase railing & arc welding',
+    color: 'from-rose-600 to-red-800',
+    popular: true,
+    isOpen: true,
+    isClosedToday: false,
+    subServices: [
+      { id: 'sub-weld-1', name: 'Designer Main Safety Gate Fabrication', avgPrice: 185, unit: 'per sq.ft' },
+      { id: 'sub-weld-2', name: 'Window Safety Grill & Balcony Railing', avgPrice: 140, unit: 'per sq.ft' },
+      { id: 'sub-weld-3', name: 'Tin Shed & Truss Structure Setup', avgPrice: 160, unit: 'per sq.ft' },
+      { id: 'sub-weld-4', name: 'Stainless Steel 304 Staircase Railing', avgPrice: 480, unit: 'per running ft' },
+      { id: 'sub-weld-5', name: 'Door Hinge & On-Site Emergency Arc Welding', avgPrice: 299, unit: 'per visit' }
+    ]
+  },
+  {
+    id: 'cat-mason',
+    slug: 'masonry-tiles-mistry',
+    name: 'Masonry, Tiles & Rajmistry (राजमिस्त्री & टाइल्स)',
+    nameEn: 'Masonry, Tiles & Rajmistry',
+    iconName: 'Building2',
+    description: 'House foundation, brickwork wall, floor tiles, marble fitting, roof slab casting & plastering',
+    descriptionEn: 'House foundation, brickwork wall, floor tiles, marble fitting, roof slab casting & plastering',
+    color: 'from-amber-800 to-stone-900',
+    popular: true,
+    isOpen: true,
+    isClosedToday: false,
+    subServices: [
+      { id: 'sub-mas-1', name: 'Full House Brickwork Wall Construction', avgPrice: 35, unit: 'per sq.ft' },
+      { id: 'sub-mas-2', name: 'Vitrified Floor Tile & Bathroom Fitting', avgPrice: 22, unit: 'per sq.ft' },
+      { id: 'sub-mas-3', name: 'Kitchen Countertop Granite Fitting', avgPrice: 120, unit: 'per sq.ft' },
+      { id: 'sub-mas-4', name: 'Roof Slab RCC Casting (ढलाई)', avgPrice: 45, unit: 'per sq.ft' },
+      { id: 'sub-mas-5', name: 'Smooth Wall Plastering & Fine Sponge Finish', avgPrice: 18, unit: 'per sq.ft' }
+    ]
+  },
+  {
+    id: 'cat-ro',
+    slug: 'ro-water-purifier',
+    name: 'RO & Water Purifier Service (RO प्यूरीफायर सर्विस)',
+    nameEn: 'RO & Water Purifier Service',
+    iconName: 'Droplets',
+    description: 'RO filter replacement, Kent/Aquaguard repair, TDS level correction, membrane cleaning & new RO installation',
+    descriptionEn: 'RO filter replacement, Kent/Aquaguard repair, TDS level correction, membrane cleaning & new RO installation',
+    color: 'from-cyan-600 to-blue-800',
+    popular: true,
+    isOpen: true,
+    isClosedToday: false,
+    subServices: [
+      { id: 'sub-ro-1', name: 'RO Full Filter Set & Carbon Change', avgPrice: 499, unit: 'per service' },
+      { id: 'sub-ro-2', name: 'Kent / Aquaguard Deep Service & Cleaning', avgPrice: 299, unit: 'per visit' },
+      { id: 'sub-ro-3', name: 'RO Booster Pump & Power Adapter Repair', avgPrice: 650, unit: 'per part' },
+      { id: 'sub-ro-4', name: 'Water TDS Balancing & Mineral Filter', avgPrice: 350, unit: 'per service' },
+      { id: 'sub-ro-5', name: 'New RO Wall Mounting Installation', avgPrice: 299, unit: 'per unit' }
+    ]
+  },
+  {
+    id: 'cat-salon',
+    slug: 'beauty-makeup-home-salon',
+    name: 'Beauty, Bridal Makeup & Home Salon (ब्यूटी & मेकअप)',
+    nameEn: 'Beauty, Bridal Makeup & Home Salon',
+    iconName: 'Scissors',
+    description: 'HD bridal makeup, facial, waxing, hair spa, threading, party makeup & doorstep parlor services',
+    descriptionEn: 'HD bridal makeup, facial, waxing, hair spa, threading, party makeup & doorstep parlor services',
+    color: 'from-pink-500 to-rose-700',
+    popular: true,
+    isOpen: true,
+    isClosedToday: false,
+    subServices: [
+      { id: 'sub-sal-1', name: 'HD Bridal Makeup & Hair Styling Package', avgPrice: 6500, unit: 'per bridal' },
+      { id: 'sub-sal-2', name: 'Fruit & Gold Skin Glowing Facial', avgPrice: 899, unit: 'per session' },
+      { id: 'sub-sal-3', name: 'Full Body Rica Waxing & Threading', avgPrice: 799, unit: 'per service' },
+      { id: 'sub-sal-4', name: 'Hair Spa, Smoothening & Keratin Wash', avgPrice: 1200, unit: 'per hair' },
+      { id: 'sub-sal-5', name: 'Party Guest Makeup & Saree Draping', avgPrice: 1499, unit: 'per person' }
+    ]
+  },
+  {
+    id: 'cat-mechanic',
+    slug: 'vehicle-mechanic-auto-repair',
+    name: 'Vehicle Mechanic & Towing (गाड़ी मैकेनिक & सर्विस)',
+    nameEn: 'Vehicle Mechanic & Towing',
+    iconName: 'Car',
+    description: 'Car & bike doorstep servicing, engine overhaul, puncture fix, battery jumpstart & emergency towing',
+    descriptionEn: 'Car & bike doorstep servicing, engine overhaul, puncture fix, battery jumpstart & emergency towing',
+    color: 'from-slate-700 to-zinc-900',
+    popular: true,
+    isOpen: true,
+    isClosedToday: false,
+    subServices: [
+      { id: 'sub-mech-1', name: '2-Wheeler Full Engine Oil & Tuneup', avgPrice: 249, unit: 'per bike' },
+      { id: 'sub-mech-2', name: 'Car Full Inspection, Oil Change & Brakes', avgPrice: 1499, unit: 'per car' },
+      { id: 'sub-mech-3', name: 'On-Road Emergency Tubeless Puncture Fix', avgPrice: 150, unit: 'per spot' },
+      { id: 'sub-mech-4', name: 'Car Battery Jumpstart & Cable Charging', avgPrice: 299, unit: 'per visit' },
+      { id: 'sub-mech-5', name: 'On-Call Flatbed Vehicle Towing', avgPrice: 1200, unit: 'per trip' }
+    ]
+  },
+  {
+    id: 'cat-catering',
+    slug: 'catering-cook-tent-house',
+    name: 'Catering, Cook & Tent House (हलवाई & कैटरिंग)',
+    nameEn: 'Catering, Cook & Tent House',
+    iconName: 'Utensils',
+    description: 'Halwai & party cook team, veg/non-veg catering, marriage tent decor, buffet counter & sound system',
+    descriptionEn: 'Halwai & party cook team, veg/non-veg catering, marriage tent decor, buffet counter & sound system',
+    color: 'from-orange-600 to-amber-700',
+    popular: true,
+    isOpen: true,
+    isClosedToday: false,
+    subServices: [
+      { id: 'sub-cat-1', name: 'Marriage Veg & Non-Veg Halwai Team', avgPrice: 4500, unit: 'per day' },
+      { id: 'sub-cat-2', name: 'Full Wedding Party Buffet Catering', avgPrice: 350, unit: 'per plate' },
+      { id: 'sub-cat-3', name: 'Waterproof Tent Pandal & Stage Decor', avgPrice: 15000, unit: 'per setup' },
+      { id: 'sub-cat-4', name: 'Fancy Wedding Lighting & Entrance Gate', avgPrice: 8500, unit: 'per event' },
+      { id: 'sub-cat-5', name: 'High-Power DJ Sound System & Operators', avgPrice: 6000, unit: 'per night' }
+    ]
+  },
+  {
+    id: 'cat-photo',
+    slug: 'photography-video-editing',
+    name: 'Photography & Video Editing (फोटोग्राफी & वीडियो)',
+    nameEn: 'Photography & Video Editing',
+    iconName: 'Camera',
+    description: 'Wedding candid photography, 4K video shoot, drone coverage, pre-wedding shoot & album designing',
+    descriptionEn: 'Wedding candid photography, 4K video shoot, drone coverage, pre-wedding shoot & album designing',
+    color: 'from-indigo-600 to-purple-800',
+    popular: true,
+    isOpen: true,
+    isClosedToday: false,
+    subServices: [
+      { id: 'sub-pho-1', name: 'Full Wedding Candid Photography Package', avgPrice: 15000, unit: 'per wedding' },
+      { id: 'sub-pho-2', name: '4K Cinematic Video Shoot & Traditional Film', avgPrice: 18000, unit: 'per wedding' },
+      { id: 'sub-pho-3', name: '4K Aerial Drone Coverage with Operator', avgPrice: 7500, unit: 'per day' },
+      { id: 'sub-pho-4', name: 'Pre-Wedding Outdoor Photoshoot & Teaser', avgPrice: 12000, unit: 'per shoot' },
+      { id: 'sub-pho-5', name: 'Premium Flush Mount Photobook Album (30 Sheets)', avgPrice: 8000, unit: 'per album' }
+    ]
+  },
+  {
+    id: 'cat-driver',
+    slug: 'driver-auto-transport',
+    name: 'Driver, Auto & Transport (ड्राइवर & ट्रांसपोर्ट)',
+    nameEn: 'Driver, Auto & Transport',
+    iconName: 'Truck',
+    description: 'Personal outstation driver, local auto rickshaw hire, pickup truck goods transport & airport drop',
+    descriptionEn: 'Personal outstation driver, local auto rickshaw hire, pickup truck goods transport & airport drop',
+    color: 'from-teal-600 to-emerald-800',
+    popular: true,
+    isOpen: true,
+    isClosedToday: false,
+    subServices: [
+      { id: 'sub-drv-1', name: 'Outstation Personal Car Driver', avgPrice: 800, unit: 'per day' },
+      { id: 'sub-drv-2', name: 'Pickup Bolero Truck Goods Transport', avgPrice: 1200, unit: 'per trip' },
+      { id: 'sub-drv-3', name: 'Local Reserve Passenger Auto Rickshaw', avgPrice: 350, unit: 'per trip' },
+      { id: 'sub-drv-4', name: 'Ranchi Airport / Railway Station Drop Cab', avgPrice: 1800, unit: 'per trip' },
+      { id: 'sub-drv-5', name: 'Monthly Commercial Vehicle Driver', avgPrice: 14000, unit: 'per month' }
+    ]
+  },
+  {
+    id: 'cat-labor',
+    slug: 'labor-loading-shifting',
+    name: 'Labor, Loading & Shifting (मजदूर & लोडिंग)',
+    nameEn: 'Labor, Loading & Shifting',
+    iconName: 'Users',
+    description: 'House furniture shifting labor, heavy loading-unloading, site clearing & packaging workforce',
+    descriptionEn: 'House furniture shifting labor, heavy loading-unloading, site clearing & packaging workforce',
+    color: 'from-yellow-600 to-amber-800',
+    popular: true,
+    isOpen: true,
+    isClosedToday: false,
+    subServices: [
+      { id: 'sub-lab-1', name: 'Home Goods & Furniture Shifting Helper', avgPrice: 500, unit: 'per day / person' },
+      { id: 'sub-lab-2', name: 'Heavy Material Loading / Unloading Worker', avgPrice: 600, unit: 'per day' },
+      { id: 'sub-lab-3', name: 'Construction Site Debris Clearing Labor', avgPrice: 550, unit: 'per day' },
+      { id: 'sub-lab-4', name: 'Household Packing & Bubble Wrap Team', avgPrice: 1500, unit: 'per home' },
+      { id: 'sub-lab-5', name: 'Hourly On-Demand Emergency Helper', avgPrice: 150, unit: 'per hour' }
+    ]
+  },
+  {
+    id: 'cat-security',
+    slug: 'security-guard-caretaker',
+    name: 'Security Guard & Caretaker (सिक्योरिटी & गार्डनर)',
+    nameEn: 'Security Guard & Caretaker',
+    iconName: 'ShieldCheck',
+    description: 'Commercial 24x7 security guards, house caretaker, lawn gardener & event bouncer team',
+    descriptionEn: 'Commercial 24x7 security guards, house caretaker, lawn gardener & event bouncer team',
+    color: 'from-blue-700 to-slate-900',
+    popular: true,
+    isOpen: true,
+    isClosedToday: false,
+    subServices: [
+      { id: 'sub-sec-1', name: '24x7 Uniformed Security Guard Duty', avgPrice: 11000, unit: 'per month' },
+      { id: 'sub-sec-2', name: 'Residential House Caretaker & Maintenance', avgPrice: 9000, unit: 'per month' },
+      { id: 'sub-sec-3', name: 'Lawn & Garden Grass Trimming Gardener', avgPrice: 400, unit: 'per visit' },
+      { id: 'sub-sec-4', name: 'Event Safety Bouncer & VIP Escort', avgPrice: 1500, unit: 'per event' },
+      { id: 'sub-sec-5', name: 'Night Watchman Security Patrol', avgPrice: 8500, unit: 'per month' }
+    ]
   }
 ];
 
@@ -623,6 +823,146 @@ const MATERIALS_PEOPLE = buildCategorySpecialists('cat-materials', 'Materials', 
   { name: 'Jai Maa Chhinnamasta Transport & Heavy Supply', title: 'Tractor Trolley & 10-Wheeler Dumper Material Delivery Fleet', exp: 17, rating: 4.96, jobs: 640, reviewsCount: 220, skills: ['Dedicated Fleet of 8 Vehicles', 'GPS Tracked Delivery', 'Night Pour Delivery', 'Bulk Sand & Gitti'], bio: 'Reliable transport logistics delivering heavy truckloads of sand, stone aggregate, and bricks right to your construction gate.' }
 ]);
 
+// 11. WELDER & FABRICATION (10 Specialists)
+const WELDER_PEOPLE = buildCategorySpecialists('cat-welder', 'Welding', 185, 'per sq.ft', [
+  { name: 'Soni Iron Works & Fabricators', title: 'Designer Main Safety Gate & Metal Grill Specialist', exp: 16, rating: 4.96, jobs: 540, reviewsCount: 190, skills: ['Safety Gate Fabrication', 'Window Grill', 'Tin Shed Truss', 'Arc Welding'], bio: '16+ years experience fabricating heavy safety gates, window grills, and tin shed structures across Bhurkunda.' },
+  { name: 'Vijay Fabricators & SS Railing', title: 'Stainless Steel 304 Staircase & Balcony Railing Master', exp: 13, rating: 4.93, jobs: 420, reviewsCount: 145, skills: ['SS 304 Railing', 'Glass Railing Fittings', 'Laser Cut Gates', 'Argon Welding'], bio: 'Specialist in rust-proof SS 304 staircase railings, balcony toughened glass fittings, and modern gates.' },
+  { name: 'Ramesh Vishwakarma', title: 'Tin Shed Roofing, Warehouse Truss & Shed Contractor', exp: 15, rating: 4.91, jobs: 480, reviewsCount: 160, skills: ['Industrial Tin Shed', 'Polycarbonate Sheet', 'Gutter Fitting', 'Heavy Structure'], bio: 'Constructing durable factory sheds, rooftop tin structures, and car parking sheds in Ramgarh.' },
+  { name: 'Anand Kumar Saw', title: 'Emergency On-Site Door Hinge & Arc Welding Fixer', exp: 10, rating: 4.88, jobs: 310, reviewsCount: 98, skills: ['Door Hinge Re-weld', 'Shutter Repair', 'Iron Bed Fix', 'Portable Generator Welding'], bio: 'Fast portable welding machine doorstep service for broken door hinges, iron beds, and shop shutters.' },
+  { name: 'Dharmendra Sharma', title: 'Cast Iron Boundary Railing & Collapsible Gate Master', exp: 14, rating: 4.92, jobs: 410, reviewsCount: 138, skills: ['Collapsible Gate', 'Rolling Shutter', 'Cast Iron Railing', 'Channel Gate'], bio: 'Manufacturing heavy collapsible channel gates and smooth spring-loaded rolling shutters for shops.' },
+  { name: 'Manoj Kumar Iron Works', title: 'Modern Laser Cut Sheet Gate & Designer Front Elevation', exp: 11, rating: 4.95, jobs: 360, reviewsCount: 122, skills: ['CNC Laser Cut Sheet', 'Modern Main Gate', 'Compound Railing', 'Primer Coating'], bio: 'Crafting stunning CNC laser-cut sheet main gates with anti-rust zinc primer coating in Sayal.' },
+  { name: 'Pankaj Vishwakarma', title: 'Spiral Staircase & Iron Fire Escape Ladder Specialist', exp: 12, rating: 4.90, jobs: 330, reviewsCount: 108, skills: ['Spiral Iron Stairs', 'Fire Escape Ladder', 'Heavy Angle Frames', 'Roof Access'], bio: 'Space-saving spiral iron staircases and heavy-duty rooftop ladders for residential buildings.' },
+  { name: 'Sanjay Kumar Saw', title: 'Steel Truss Cattle Shed & Agriculture Shed Builder', exp: 9, rating: 4.87, jobs: 280, reviewsCount: 88, skills: ['Poultry & Dairy Shed', 'Tubular Steel Frame', 'Galvanized Sheet', 'Wind Resistant'], bio: 'Building economical tubular steel truss structures for dairy farms, poultry sheds, and godowns.' },
+  { name: 'Deepak Kumar Fabrication', title: 'Aluminum Sliding Window & Partition Mesh Specialist', exp: 8, rating: 4.89, jobs: 250, reviewsCount: 79, skills: ['Aluminum Sliding Window', 'Mosquito Net Frame', 'Office Glass Partition', 'Anodized Section'], bio: 'Fabricating aluminum 3-track sliding windows, stainless steel mosquito mesh frames, and cabin partitions.' },
+  { name: 'Suraj Kumar Vishwakarma', title: 'Custom Iron Furniture, Swings & Decorative Metalwork', exp: 7, rating: 4.94, jobs: 210, reviewsCount: 71, skills: ['Garden Jhula Swing', 'Iron Shoe Racks', 'Plant Stands', 'Metal Dining Frames'], bio: 'Crafting custom garden iron swings, shoe stands, flower pot stands, and heavy metal bed frames.' }
+]);
+
+// 12. MASONRY & TILES (10 Specialists)
+const MASON_PEOPLE = buildCategorySpecialists('cat-mason', 'Masonry', 35, 'per sq.ft', [
+  { name: 'Rajesh Mistry & Sons', title: 'Master Rajmistry (House Foundation & Slab Casting)', exp: 20, rating: 4.97, jobs: 780, reviewsCount: 280, skills: ['House Foundation', 'Brickwork Wall', 'RCC Roof Slab Casting', 'Column Pillar'], bio: '20+ years constructing double-story houses, RCC column foundations, and slab casting across Bhurkunda.' },
+  { name: 'Dilip Kumar Tile Contractor', title: 'Vitrified Floor Tile & Designer Bathroom Specialist', exp: 15, rating: 4.95, jobs: 620, reviewsCount: 210, skills: ['Vitrified 2x4 Tiles', 'Bathroom Wall Tiles', 'Tile Leveling Spacer', 'Epoxy Grouting'], bio: 'Precision floor tile installation with 100% zero-gap leveling, slope drainage, and waterproof epoxy grout.' },
+  { name: 'Binod Saw Granite & Marble Mistry', title: 'Kitchen Countertop Granite & Stair Marble Specialist', exp: 16, rating: 4.94, jobs: 540, reviewsCount: 185, skills: ['Kitchen Granite Edge Molding', 'Stair Marble Fitting', 'Kota Stone Polish', 'Full Bullnose'], bio: 'Flawless Jet Black granite fitting for kitchen counters, staircase marble risers, and Kota stone.' },
+  { name: 'Arun Kumar Mistry', title: 'Smooth Wall Plastering & Sponge Finish Expert', exp: 12, rating: 4.91, jobs: 490, reviewsCount: 160, skills: ['Outer Wall Plaster', 'Ceiling Plaster', 'Smooth Sponge Finish', 'Damp-Proof Mortar'], bio: 'Expert outer and inner wall plastering ensuring crack-free smooth surfaces ready for wall putty.' },
+  { name: 'Suresh Paswan Brickwork Master', title: 'Boundary Wall & Red Clay Brick Construction Expert', exp: 14, rating: 4.89, jobs: 450, reviewsCount: 148, skills: ['9-Inch Main Wall', '4.5-Inch Partition Wall', 'Boundary Wall', 'Flyash Block Masonry'], bio: 'Fast and straight brickwork construction for boundary walls, rooms, and colliery quarter extensions.' },
+  { name: 'Kanhaiya Lal Tile Repairer', title: 'Hollow Tile Repair, Re-Grouting & Broken Tile Fixer', exp: 10, rating: 4.88, jobs: 310, reviewsCount: 99, skills: ['Hollow Sounding Tile Fix', 'Waterproof Grouting', 'Skirting Repair', 'Tile Removal'], bio: 'Repairing loose or sound-producing floor tiles without breaking neighboring tiles.' },
+  { name: 'Ganesh Mahto RCC Specialist', title: 'RCC Water Tank, Septic Tank & Chhajja Casting Specialist', exp: 17, rating: 4.93, jobs: 580, reviewsCount: 195, skills: ['Underground RCC Tank', 'Septic Tank Casting', 'Window Chhajja', 'Waterproofing Cement'], bio: 'Leak-proof underground water sumps, concrete septic tanks, and cantilever window sunshades.' },
+  { name: 'Mahesh Kumar Marble Polishing', title: 'Diamond Marble Polishing & Terrazzo Floor Buffing', exp: 11, rating: 4.92, jobs: 380, reviewsCount: 128, skills: ['Mirror Finish Polish', 'Oxalic Acid Wash', 'Marble Scratch Remove', 'Floor Buffing'], bio: 'Restoring old dull marble floors to high-gloss mirror shine using Italian diamond abrasive pads.' },
+  { name: 'Shambhu Mistry', title: 'Interlocking Paver Block & Courtyard Paving Contractor', exp: 13, rating: 4.90, jobs: 410, reviewsCount: 135, skills: ['Interlocking Pavers', 'Sand Bedding', 'Border Kerb Stone', 'Compound Paving'], bio: 'Laying durable interlocking paver blocks for home driveways, garden paths, and shop entrances.' },
+  { name: 'Prakash Kumar Masonry', title: 'Parapet Wall, Roof Slope & Water Drainage Plasterer', exp: 9, rating: 4.87, jobs: 290, reviewsCount: 92, skills: ['Rooftop Slope Plaster', 'Parapet Wall Coping', 'Drainage Channel', 'China Mosaic Roof'], bio: 'Ensuring proper rooftop rain slope so rain water flows instantly into drain pipes without standing.' }
+]);
+
+// 13. RO & WATER PURIFIER (10 Specialists)
+const RO_PEOPLE = buildCategorySpecialists('cat-ro', 'RO Service', 299, 'per visit', [
+  { name: 'Vicky RO Water Solutions', title: 'Kent, Aquaguard & All Brand RO Deep Service Master', exp: 12, rating: 4.97, jobs: 590, reviewsCount: 215, skills: ['RO Filter Replacement', 'Membrane Wash', 'TDS Controller', 'Leakage Fix'], bio: '12+ years experience servicing Kent, Pureit, Aquaguard, and Eureka Forbes RO systems across Bhurkunda.' },
+  { name: 'Rahul RO Technician', title: 'RO Filter Set, Carbon & Sediment Cartridge Change', exp: 8, rating: 4.93, jobs: 420, reviewsCount: 140, skills: ['Original Filter Cartridge', 'UF / UV Lamp Fix', 'Pre-Filter Housing', 'Mineral Cartridge'], bio: 'Prompt replacement of choked RO filters using genuine food-grade coconut shell carbon filters.' },
+  { name: 'Sanjeev Kumar RO Repairs', title: 'RO Booster Pump, Transformer & Solenoid Valve Fixer', exp: 10, rating: 4.91, jobs: 380, reviewsCount: 125, skills: ['100 GPD Booster Pump', '24V Power Adapter', 'Solenoid Valve', 'SMPS Circuit'], bio: 'Diagnosing low water pressure, noisy booster pumps, and electrical power failure in RO units.' },
+  { name: 'Amit Soni Water Tech', title: 'Water TDS Level Balancing & Mineral Booster Specialist', exp: 9, rating: 4.95, jobs: 340, reviewsCount: 112, skills: ['TDS Adjustment 80-150', 'Alkaline Filter', 'Copper+Zinc Cartridge', 'Pure Water Test'], bio: 'Balancing sweet drinking water TDS between 80 to 120 PPM with natural essential minerals.' },
+  { name: 'Sunil Kumar RO Installer', title: 'New Wall RO Mounting & Under-Sink RO Installer', exp: 7, rating: 4.89, jobs: 260, reviewsCount: 82, skills: ['Wall Mounting', 'Under Sink Fitting', 'Sink Tap Diverter', 'Pipe Extension'], bio: 'Clean installation of new RO water purifiers with concealed water supply lines and drain hoses.' },
+  { name: 'Deepak RO & Water Softener', title: 'Commercial RO Plant & Hard Water Softener Specialist', exp: 11, rating: 4.94, jobs: 310, reviewsCount: 105, skills: ['50 LPH Commercial RO', 'Hard Water Softener', 'Resin Regeneration', 'School/Hotel RO'], bio: 'Installing and maintaining 50LPH to 500LPH commercial RO plants for schools, offices, and hotels.' },
+  { name: 'Ravi Kumar Purifier', title: 'UV Lamp Replacement & Water Bacteria Disinfection', exp: 6, rating: 4.88, jobs: 190, reviewsCount: 61, skills: ['UV Choke Repair', 'Philips UV Lamp', 'Ultrafiltration UF', 'Auto Shutoff'], bio: 'Replacing burnt UV sterilizer lamps to kill 99.9% bacteria and viruses in drinking water.' },
+  { name: 'Manoj Kumar RO Tech', title: 'RO Water Leakage, Pipe Fitting & Tap Dripping Repair', exp: 9, rating: 4.87, jobs: 280, reviewsCount: 89, skills: ['Dripping Tap Fix', '1/4 Inch Push Pipe', 'Elbow Connector', 'Storage Tank Wash'], bio: 'Quick 20-minute home visits to fix leaking RO tubes, broken elbows, and sanitizing storage tanks.' },
+  { name: 'Pawan Kumar Pure Water', title: 'Annual Maintenance Contract (AMC) RO Care Specialist', exp: 10, rating: 4.92, jobs: 350, reviewsCount: 118, skills: ['Full Year RO AMC', '3 Free Visits', 'Free Filter Change', 'Zero Labor Cost'], bio: 'Comprehensive 1-year RO maintenance packages including free filter replacement and unlimited calls.' },
+  { name: 'Suraj Verma Water Solutions', title: 'Gravity Water Filter, Stainless Steel Purifier Repairer', exp: 8, rating: 4.86, jobs: 220, reviewsCount: 70, skills: ['Candle Filter Change', 'Steel Tank Clean', 'Tap Replacement', 'Zero Power Filter'], bio: 'Servicing non-electric gravity water filters, ceramic candles, and stainless steel purifiers.' }
+]);
+
+// 14. SALON & BEAUTY (10 Specialists)
+const SALON_PEOPLE = buildCategorySpecialists('cat-salon', 'Salon', 899, 'per session', [
+  { name: 'Pooja Beauty Parlor & Bridal Studio', title: 'HD Bridal Makeup & International Hair Styling Master', exp: 12, rating: 4.98, jobs: 520, reviewsCount: 210, skills: ['HD Bridal Makeup', 'Airbrush Makeup', 'Hair Updo & Extensions', 'Saree Draping'], bio: '12+ years experience transforming brides with long-lasting HD makeup, water-proof products, and elegant hairstyling.' },
+  { name: 'Sunita Sharma Home Salon', title: 'Doorstep Organic Facial & Skin Radiance Specialist', exp: 9, rating: 4.94, jobs: 410, reviewsCount: 150, skills: ['Gold / Diamond Facial', 'O3+ Anti-Tan Facial', 'Detan Pack', 'Face Bleach'], bio: 'Relaxing doorstep herbal facials, O3+ skin whitening treatments, and deep-cleansing detan packs.' },
+  { name: 'Meena Kumari Beauty Care', title: 'Full Body Rica Waxing, Threading & Pedicure Specialist', exp: 10, rating: 4.92, jobs: 460, reviewsCount: 165, skills: ['Rica Liposoluble Wax', 'Eyebrow Threading', 'Spa Pedicure & Manicure', 'Underarm Wax'], bio: 'Painless Rica waxing, neat eyebrow threading, and refreshing foot spa pedicures at your doorstep.' },
+  { name: 'Priya Verma Hair Studio', title: 'Hair Spa, Keratin Treatment & Smoothening Specialist', exp: 8, rating: 4.95, jobs: 340, reviewsCount: 120, skills: ['L’Oreal Hair Spa', 'Keratin Smoothening', 'Hair Rebonding', 'Global Hair Color'], bio: 'Professional hair nourishing spa, frizz-control keratin treatments, and stylish highlights in Ramgarh.' },
+  { name: 'Kavita Mishra Party Makeup', title: 'Party Guest Makeup, Engagement Look & Saree Styling', exp: 7, rating: 4.90, jobs: 280, reviewsCount: 95, skills: ['Engagement Makeup', 'Sangeet Party Look', 'Dupatta Setting', 'Soft Glam Makeup'], bio: 'Glamorous guest makeup for weddings, ring ceremonies, and festival parties with premium cosmetics.' },
+  { name: 'Neha Soni Nail Art Studio', title: 'Gel Nail Extensions, Acrylic Art & French Tips Artist', exp: 6, rating: 4.93, jobs: 230, reviewsCount: 82, skills: ['Gel Nail Extensions', 'Glitter Nail Art', '3D Flower Nails', 'Acrylic Overlays'], bio: 'Trendy gel nail extensions, bridal glitter nail art, and long-lasting UV top coat shine.' },
+  { name: 'Ritu Kumari Mehendi Artist', title: 'Traditional Bridal Mehendi & Arabic Henna Designer', exp: 11, rating: 4.96, jobs: 480, reviewsCount: 175, skills: ['Full Hand Bridal Mehendi', 'Figure Mehendi', 'Arabic Pattern', 'Natural Dark Cone'], bio: 'Intricate Rajasthani and Marwari bridal mehendi designs with 100% natural dark organic stain guaranteed.' },
+  { name: 'Shweta Pandey Hair Care', title: 'Scalp Treatment, Anti-Dandruff Spa & Hair Fall Control', exp: 8, rating: 4.89, jobs: 260, reviewsCount: 88, skills: ['Scalp Massage', 'High-Frequency Therapy', 'Hairfall Ampoules', 'Deep Conditioning'], bio: 'Dermatology-inspired hair fall control treatments, hot oil scalp massages, and anti-dandruff care.' },
+  { name: 'Anjali Sharma Beauty', title: 'Pre-Bridal Grooming & Full Package Specialist', exp: 10, rating: 4.97, jobs: 390, reviewsCount: 140, skills: ['7-Day Pre-Bridal Package', 'Body Polish', 'Body Scrub', 'Ubtan Glow'], bio: 'Comprehensive 7-day pre-bridal beauty glow packages including full body polishing, threading, and spa.' },
+  { name: 'Rekha Devi Home Beauty', title: 'Traditional Haldi & Mehendi Sangeet Makeup Artist', exp: 9, rating: 4.88, jobs: 310, reviewsCount: 102, skills: ['Haldi Yellow Glow Look', 'Flower Jewelry Setup', 'Waterproof Base', 'Family Styling'], bio: 'Vibrant Haldi function makeup, floral hair styling, and family group makeup bookings.' }
+]);
+
+// 15. VEHICLE MECHANIC (10 Specialists)
+const MECHANIC_PEOPLE = buildCategorySpecialists('cat-mechanic', 'Mechanic', 249, 'per bike', [
+  { name: 'Vicky Auto Garage & Towing', title: '2-Wheeler Engine Master & On-Road Emergency Repairer', exp: 14, rating: 4.96, jobs: 610, reviewsCount: 220, skills: ['Engine Oil Change', 'Carburetor Cleaning', 'Clutch Plate', 'On-Road Breakdown'], bio: '14+ years experience servicing Hero, Honda, TVS, Bajaj, and Royal Enfield bikes with genuine lubricants.' },
+  { name: 'Rahul Car Care & Service Center', title: 'Car Full Service, Engine Diagnostics & Brake Overhaul', exp: 12, rating: 4.93, jobs: 520, reviewsCount: 180, skills: ['OBD2 Scanner Diagnostic', 'Synthetic Engine Oil', 'Brake Pad Change', 'Coolant Flush'], bio: 'Multi-brand car workshop handling Maruti, Hyundai, Tata, and Mahindra cars with computer scanner diagnostics.' },
+  { name: 'Sanjeev Tubeless Puncture & Tyre Shop', title: '24x7 Roadside Tubeless Puncture & Air Pressure Fixer', exp: 10, rating: 4.91, jobs: 490, reviewsCount: 160, skills: ['Tubeless Strip Puncture', 'Mushroom Patch', 'Wheel Alignment', 'Air Nitrogen'], bio: 'Prompt 24/7 mobile puncture repair reaching anywhere on Bhurkunda-Ramgarh highway.' },
+  { name: 'Amit Battery Jumpstart & Auto Electricals', title: 'Car Battery Jumpstart, Alternator & Starter Motor Specialist', exp: 11, rating: 4.95, jobs: 430, reviewsCount: 148, skills: ['Heavy Jumper Cables', 'Battery Health Test', 'Self Starter Fix', 'Alternator Wiring'], bio: 'Doorstep car battery jumpstart service and self-starter motor repair when your car won’t start.' },
+  { name: 'Deepak Flatbed Towing Service', title: 'Hydraulic Flatbed Towing & Breakdown Recovery Vehicle', exp: 15, rating: 4.97, jobs: 580, reviewsCount: 205, skills: ['Hydraulic Flatbed Truck', 'Safe Zero-Damage Tow', 'Accident Recovery', 'Outstation Towing'], bio: 'Safe hydraulic flatbed car towing and winch breakdown recovery to service centers across Jharkhand.' },
+  { name: 'Ravi Bike Engine Overhaul', title: 'Royal Enfield Bullet & High-CC Performance Bike Specialist', exp: 13, rating: 4.92, jobs: 410, reviewsCount: 139, skills: ['Royal Enfield Bullet 350/500', 'Engine Reboring', 'Chain Lube & Tight', 'Disc Brake Bleed'], bio: 'Bullet tuning specialist fixing engine tappet noise, clutch slipping, and disc brake oil bleeding.' },
+  { name: 'Manoj AC & Car Electricals', title: 'Car AC Gas Refill, Cooling Coil Clean & Wiring Specialist', exp: 10, rating: 4.90, jobs: 360, reviewsCount: 121, skills: ['R134a AC Gas Charging', 'Compressor Repair', 'Dashboard Cooling Coil', 'Blower Fan'], bio: 'Ice-cold car AC servicing, leak detection, dashboard cooling coil replacement, and compressor oil top-up.' },
+  { name: 'Pawan Auto Rickshaw Mechanic', title: '3-Wheeler Auto Rickshaw Engine & Clutch Specialist', exp: 14, rating: 4.88, jobs: 470, reviewsCount: 155, skills: ['Piaggio / Bajaj Auto', 'CNG / Diesel Engine', 'Gear Box Overhaul', 'Clutch Cable'], bio: 'Specialist mechanic for commercial auto rickshaws, tempo pickup vans, and CNG fuel lines in Bhurkunda.' },
+  { name: 'Suraj Car Washing & Foam Spa', title: 'Doorstep Car Pressure Washing, Interior Vacuum & Polish', exp: 8, rating: 4.94, jobs: 320, reviewsCount: 108, skills: ['High Pressure Foam Wash', 'Interior Vacuum Clean', 'Dashboard Wax Polish', 'Underbody Wash'], bio: 'Doorstep high-pressure foam washing, upholstery vacuuming, and UV dashboard polish.' },
+  { name: 'Kishan Denting & Painting Works', title: 'Car Body Scratch Removal, Dent Pulling & Spray Painting', exp: 13, rating: 4.89, jobs: 390, reviewsCount: 130, skills: ['Drying Booth Spray Paint', 'Hydraulic Dent Puller', 'Bumper Scratch Touchup', 'Clear Coat Buffing'], bio: 'Flawless computerized paint color matching and hydraulic dent pulling for damaged car bumpers and doors.' }
+]);
+
+// 16. CATERING & COOK (10 Specialists)
+const CATERING_PEOPLE = buildCategorySpecialists('cat-catering', 'Catering', 4500, 'per day', [
+  { name: 'Vicky Halwai & Catering Services', title: 'Senior Marriage Halwai & Veg / Non-Veg Banquet Cook', exp: 18, rating: 4.98, jobs: 680, reviewsCount: 250, skills: ['Wedding Feast (3000+ Guests)', 'Paneer Butter Masala', 'Mutton & Chicken Biryani', 'Gulab Jamun Live'], bio: '18+ years catering grand weddings, receptions, and birthday parties with traditional delicious dishes in Ramgarh.' },
+  { name: 'Rahul Party Buffet Caterers', title: 'Full Wedding Party Buffet Catering (Per Plate Service)', exp: 14, rating: 4.95, jobs: 540, reviewsCount: 190, skills: ['Buffet Counter Setup', 'Uniformed Waiters', 'Mocktail Bar Counter', 'Hygiene Standards'], bio: 'Complete per-plate buffet catering with designer food stalls, fruit counters, live tandoor, and trained stewards.' },
+  { name: 'Sanjeev Tent House & Pandals', title: 'Waterproof Tent Pandal, Stage Decor & Flower Gate Master', exp: 20, rating: 4.96, jobs: 720, reviewsCount: 260, skills: ['Waterproof German Hangar', 'Wedding Stage Decor', 'Entry Flower Gate', 'VIP Sofa Seating'], bio: 'Designing royal wedding mandaps, waterproof banquet tents, and luxury flower entry archways in Bhurkunda.' },
+  { name: 'Amit Sound & DJ Lights', title: 'High-Power DJ Sound System, Sharpy Lights & Smoke Machine', exp: 11, rating: 4.93, jobs: 430, reviewsCount: 152, skills: ['JBL Double Bass Sound', 'Sharpy Moving Lights', 'Fog / Cold Pyro Machine', 'Sangeet Night DJ'], bio: 'Rocking wedding Baraat processions, Sangeet nights, and birthdays with crystal clear bass and lights.' },
+  { name: 'Deepak Pure Veg Halwai', title: 'Pure Marwari & Jain Veg Feast Cooking Specialist', exp: 16, rating: 4.94, jobs: 510, reviewsCount: 178, skills: ['Pure Desi Ghee Sweets', 'Jain Food (No Onion Garlic)', 'Kachori & Jalebi Live', 'Daal Baati Churma'], bio: 'Authentic pure vegetarian Halwai team specializing in pure ghee sweets, Jain catering, and live chaat counters.' },
+  { name: 'Ravi Kitchen Equipment Hire', title: 'Banquet Gas Stove, Big Degchi & Crockery Rental Hub', exp: 12, rating: 4.90, jobs: 380, reviewsCount: 126, skills: ['High Pressure Gas Burners', 'Big Aluminum Degchi', 'Melamine / Bone China Plates', 'Buffet Chafing Dish'], bio: 'Renting heavy catering cooking utensils, gas stoves, chafing dishes, and party crockery sets.' },
+  { name: 'Manoj Sweets & Live Counters', title: 'Live Jalebi, Rabdi, Kulfi & Ice Cream Stall Operator', exp: 10, rating: 4.92, jobs: 350, reviewsCount: 115, skills: ['Live Hot Jalebi Counter', 'Matka Kulfi', 'Gola & Ice Cream Stall', 'Live Tawa Mithai'], bio: 'Operating mouthwatering live dessert stalls for wedding receptions and corporate events.' },
+  { name: 'Pawan South Indian & Chinese Cook', title: 'Live Dosa, Chowmein, Pav Bhaji & Fast Food Stall Chef', exp: 9, rating: 4.88, jobs: 310, reviewsCount: 99, skills: ['Paper Butter Dosa Live', 'Hakkaa Noodles', 'Mumbai Pav Bhaji', 'Crispy Paneer Tikka'], bio: 'Popular fast-food live counters serving piping hot dosas, manchurian, and paneer tikka to guests.' },
+  { name: 'Suraj Tea & Breakfast Caterer', title: 'Morning Breakfast, Kulhad Tea & Snack Service Team', exp: 8, rating: 4.89, jobs: 270, reviewsCount: 88, skills: ['Kulhad Masala Tea', 'Poori Sabzi Breakfast', 'Samosa & Bread Pakora', 'Welcome Drinks'], bio: 'Managing morning breakfast catering for wedding guests, VIP meetings, and religious pujas.' },
+  { name: 'Kishan Water & Disposable Supply', title: '20L Mineral Water Jars & Eco-Friendly Paper Plates', exp: 11, rating: 4.91, jobs: 420, reviewsCount: 140, skills: ['20L Water Jars Fleet', 'Areca Leaf Plates', 'Paper Cups & Tissue', 'Ice Cubes Supply'], bio: 'Chilled 20L mineral water jar delivery, party ice bags, and biodegradable leaf plate supply.' }
+]);
+
+// 17. PHOTOGRAPHY (10 Specialists)
+const PHOTO_PEOPLE = buildCategorySpecialists('cat-photo', 'Photography', 15000, 'per wedding', [
+  { name: 'Vicky Digital Studio & Films', title: 'Senior Wedding Candid Photographer & 4K Cinematic Director', exp: 14, rating: 4.98, jobs: 590, reviewsCount: 230, skills: ['Sony Full Frame Alpha', '4K Cinematic Teaser', 'Pre-Wedding Shoot', 'Drone Operator'], bio: '14+ years capturing emotional candid wedding moments, cinematic trailer teasers, and pre-wedding shoots across Jharkhand.' },
+  { name: 'Rahul Drone Aerial Photography', title: 'Licensed 4K Aerial Drone Operator & Event Videographer', exp: 9, rating: 4.95, jobs: 410, reviewsCount: 148, skills: ['DJI Mavic 4K Drone', 'Baraat Aerial Shoot', 'Property Aerial Survey', '4K 60FPS Video'], bio: 'Breathtaking 4K aerial drone shots for Baraat processions, grand wedding venues, and commercial sites.' },
+  { name: 'Sanjeev Photobook & Album Studio', title: '30-Sheet Premium Flush Mount Velvet Photobook Designer', exp: 12, rating: 4.93, jobs: 480, reviewsCount: 165, skills: ['Flush Mount Album', 'Velvet Cover Box', 'Photoshop Retouch', 'HD Metallic Printing'], bio: 'Designing and printing durable waterproof velvet-touch wedding photobook albums with metallic shine.' },
+  { name: 'Amit Pre-Wedding Specialist', title: 'Outdoor Pre-Wedding Concept Shoot & Love Story Teaser', exp: 8, rating: 4.96, jobs: 320, reviewsCount: 115, skills: ['Patratu Valley Shoot', 'Concept Storyboarding', 'Lighting Setup', 'Reels Editing'], bio: 'Creative pre-wedding shoots at Patratu Lake resort, waterfalls, and romantic outdoor scenic spots.' },
+  { name: 'Deepak Traditional Video & Live LED', title: 'Wedding Traditional Video Shoot & Live LED Screen Setup', exp: 13, rating: 4.91, jobs: 510, reviewsCount: 170, skills: ['4K Video Camera', 'Live LED Wall Display', 'Mixer Switcher', 'Full Uncut Film'], bio: 'Recording complete traditional wedding ceremonies and broadcasting live video feed on big outdoor LED screens.' },
+  { name: 'Ravi Birthday & Baby Shoot Studio', title: 'Baby Milestone, Rice Ceremony & Birthday Photographer', exp: 7, rating: 4.92, jobs: 280, reviewsCount: 92, skills: ['Newborn Baby Props', 'Birthday Party Shoot', 'Cake Smash Shoot', 'Instant Photo Print'], bio: 'Cute newborn photo sessions, 1st birthday party coverage, and instant photo printing stalls.' },
+  { name: 'Manoj Product & Commercial Photo', title: 'E-Commerce Product Catalog, Shop & Industrial Photographer', exp: 10, rating: 4.89, jobs: 340, reviewsCount: 112, skills: ['White Background Studio', 'Jewelry Lighting', 'Amazon/Flipkart Photos', 'Factory Shoot'], bio: 'High-resolution crisp product photography for retail catalogs, jewelry, and industrial factories.' },
+  { name: 'Pawan Passport & Spot Printing', title: '5-Minute Instant Passport Photo & On-Site Print Stall', exp: 11, rating: 4.88, jobs: 390, reviewsCount: 125, skills: ['Instant Passport Photo', 'Laminated Prints', 'High Gloss Paper', 'Mobile Photo Print'], bio: 'Fast 5-minute passport photos and instant photo printing stalls for corporate and school events.' },
+  { name: 'Suraj Photo Retouch & Restoration', title: 'Old Damaged Black & White Photo Restoration & Coloring', exp: 15, rating: 4.94, jobs: 430, reviewsCount: 150, skills: ['Photo Scratch Repair', 'B&W to Color Convert', 'Face Retouch', 'High Res Scan'], bio: 'Restoring old torn heritage family photographs into crystal clear colored high-definition portraits.' },
+  { name: 'Kishan Fashion & Portfolio Shoot', title: 'Model Portfolio, Actor Headshots & Fashion Photography', exp: 8, rating: 4.90, jobs: 250, reviewsCount: 82, skills: ['Studio Flash Lights', 'Model Posing Guide', 'High Fashion Edit', 'Outdoor Natural Light'], bio: 'Professional lighting studio setup for model casting portfolios, actor headshots, and boutique clothing.' }
+]);
+
+// 18. DRIVER & TRANSPORT (10 Specialists)
+const DRIVER_PEOPLE = buildCategorySpecialists('cat-driver', 'Driver', 800, 'per day', [
+  { name: 'Vicky Outstation Personal Driver', title: 'Experienced Outstation Private Car Driver (Manual & Automatic)', exp: 15, rating: 4.97, jobs: 620, reviewsCount: 225, skills: ['Night Highway Driving', 'Automatic / CVT Cars', 'Ranchi / Patna Route', 'Safe & Courteous'], bio: '15+ years safe driving record covering long highway trips to Ranchi, Patna, Gaya, and Kolkata in luxury SUVs.' },
+  { name: 'Rahul Pickup Bolero Goods Transport', title: 'Mahindra Bolero Pickup Truck Goods Shifting Fleet', exp: 12, rating: 4.94, jobs: 540, reviewsCount: 185, skills: ['Bolero Pickup 1.5 Ton', 'Tarpaulin Water Sheet', 'Furniture Transport', 'Site Material Loading'], bio: 'Fast goods transportation for household furniture, shop stock, and building materials across Ramgarh district.' },
+  { name: 'Sanjeev Local Reserve Auto Rickshaw', title: 'Local Reserve Passenger Auto & Railway Station Transfer', exp: 10, rating: 4.91, jobs: 480, reviewsCount: 160, skills: ['Bhurkunda Railway Transfer', 'Patratu Lake Tour', 'Luggage Carrier', 'Timely Pickup'], bio: 'Clean reserved passenger auto rickshaw for family railway station drops, hospital visits, and Patratu dam tours.' },
+  { name: 'Amit Airport Drop Cab Driver', title: 'Ranchi Birsa Munda Airport & Station Drop Cab Service', exp: 11, rating: 4.96, jobs: 490, reviewsCount: 175, skills: ['Swift Dzire / Ertiga Cab', '24x7 Airport Pickup', 'AC Comfort', 'Flight Tracking'], bio: 'Punctual 24/7 airport and railway station cab pickup with clean AC cars and luggage assistance.' },
+  { name: 'Deepak Monthly Commercial Driver', title: 'Commercial Truck, Bus & Heavy Equipment Operator Driver', exp: 16, rating: 4.92, jobs: 510, reviewsCount: 170, skills: ['Heavy Commercial License', 'Mining Truck Driving', '10-Wheeler Dumper', 'Safety Trained'], bio: 'Experienced heavy commercial vehicle driver available for monthly colliery dumper and transport fleet duty.' },
+  { name: 'Ravi Local Pickup Tata Ace (Chota Hathi)', title: 'Tata Ace (Chota Hathi) Small Goods Delivery Transport', exp: 9, rating: 4.90, jobs: 410, reviewsCount: 138, skills: ['Tata Ace 750kg Load', 'Narrow Lane Delivery', 'Shop Stock Transfer', 'Fast City Transport'], bio: 'Ideal compact pickup truck for navigating narrow market alleys and quick local shop stock deliveries.' },
+  { name: 'Manoj Luxury Wedding Car Driver', title: 'Decorated Luxury Wedding Car & Groom Vehicle Driver', exp: 8, rating: 4.93, jobs: 290, reviewsCount: 98, skills: ['Fortuner / Audi / Ciaz', 'Baraat Procession Speed', 'Flower Decor Care', 'Suited Uniform'], bio: 'Polite uniformed driver for groom wedding luxury cars, VIP delegates, and family baraat convoys.' },
+  { name: 'Pawan School & Office Bus Driver', title: 'Monthly School Van & Corporate Staff Transport Driver', exp: 13, rating: 4.89, jobs: 450, reviewsCount: 150, skills: ['School Van Safety', 'Fixed Daily Timings', 'First Aid Certified', 'Parents Trusted'], bio: 'Extremely patient and safe driver for daily school children transport vans and factory staff shuttles.' },
+  { name: 'Suraj On-Call Hourly Driver', title: 'Hourly Local City Driver for Shopping & Medical Visits', exp: 7, rating: 4.88, jobs: 260, reviewsCount: 84, skills: ['City Traffic Expert', 'Parking Specialist', 'Elder Care Assist', 'Flexible Hours'], bio: 'Hire a personal driver by the hour to drive your personal car for crowded market shopping and doctor visits.' },
+  { name: 'Kishan Heavy Tractor Trolley Driver', title: 'Agricultural Tractor Trolley & Soil Sand Driver', exp: 14, rating: 4.91, jobs: 470, reviewsCount: 158, skills: ['Tractor Trolley Reverse', 'Muddy Off-Road Driving', 'Site Dumping', 'Earthy Soil Load'], bio: 'Master tractor driver handling heavy sand, morrum, and brick trolley deliveries over rough village roads.' }
+]);
+
+// 19. LABOR & SHIFTING (10 Specialists)
+const LABOR_PEOPLE = buildCategorySpecialists('cat-labor', 'Labor', 500, 'per day', [
+  { name: 'Vicky House Shifting Helpers & Packers', title: 'Household Furniture Shifting, Loading & Packing Team', exp: 12, rating: 4.96, jobs: 580, reviewsCount: 205, skills: ['Furniture Dismantle', 'Heavy Almirah Lifting', 'Fragile Glass Packing', 'Zero Damage Shifting'], bio: '12+ years experience safely moving home furniture, heavy double beds, refrigerators, and washing machines.' },
+  { name: 'Rahul Construction Material Loading Crew', title: 'Sand, Cement Bag & Heavy Steel Rod Loading Worker', exp: 14, rating: 4.93, jobs: 620, reviewsCount: 210, skills: ['Cement Bag Carrying', 'Sand Unloading', 'Rooftop Material Hoist', 'Heavy Stamina'], bio: 'Hardworking labor team for carrying cement bags, sand, and bricks up to upper floors during building work.' },
+  { name: 'Sanjeev Site Clearing & Debris Labor', title: 'Construction Debris, Malba & Waste Removal Helpers', exp: 10, rating: 4.90, jobs: 430, reviewsCount: 142, skills: ['Malba Clearing', 'Tractor Loading', 'Dust Sweeping', 'Post-Renovation Clean'], bio: 'Clearing broken concrete debris, old plaster malba, and trash from newly renovated homes.' },
+  { name: 'Amit Household Packing Team', title: 'Bubble Wrap, Corrugated Box & Stretch Film Packaging Master', exp: 9, rating: 4.94, jobs: 360, reviewsCount: 120, skills: ['Bubble Wrapping', 'Crockery Packing', 'TV Wooden Crate', 'Labeled Boxes'], bio: 'Professional packaging team wrapping TV screens, glass crockery, and wooden items with thick bubble wrap.' },
+  { name: 'Deepak Hourly Emergency Helper', title: 'On-Demand 2-Hour Emergency Helper for Heavy Lifting', exp: 8, rating: 4.88, jobs: 290, reviewsCount: 92, skills: ['Sofa Shifting', 'Water Tank Lifting', 'Shop Stock Unload', 'Quick 1-Hour Duty'], bio: 'Call helpers on short notice for shifting heavy sofas, lifting water tanks, or unloading shop delivery trucks.' },
+  { name: 'Ravi Warehouse & Godown Labor Crew', title: 'Godown Goods Stacking, Inventory & Loading Helpers', exp: 11, rating: 4.91, jobs: 470, reviewsCount: 155, skills: ['Box Stacking', 'Weight Scales', 'Truck Unloading', 'Inventory Count'], bio: 'Reliable warehouse labor crew for stacking commercial godown boxes and loading delivery trucks.' },
+  { name: 'Manoj Agriculture & Farm Worker', title: 'Farm Field Digging, Crop Harvesting & Tree Clearing Labor', exp: 15, rating: 4.89, jobs: 510, reviewsCount: 168, skills: ['Soil Digging', 'Grass Clearing', 'Tree Branch Cutting', 'Pond Cleaning'], bio: 'Agricultural field workers for soil digging, boundary trenching, and clearing thick garden weeds.' },
+  { name: 'Pawan Colliery Quarter Shifting Labor', title: 'CCL Quarter Packing & Local Colony Shifting Specialist', exp: 13, rating: 4.92, jobs: 450, reviewsCount: 150, skills: ['Colliery Quarter Move', 'Steel Trunk Loading', 'Fast Loading', 'Affordable Rates'], bio: 'Specialist helpers for CCL colliery quarter household moves across Sayal, Saunda, and Bhurkunda.' },
+  { name: 'Suraj Event Setup & Pandal Helper', title: 'Marriage Hall Stage Setup & Chair Arrangement Helpers', exp: 7, rating: 4.87, jobs: 250, reviewsCount: 81, skills: ['Stage Carpet Laying', 'Chair Unstacking', 'Heavy Table Carry', 'Night Duty'], bio: 'Setting up banquet chairs, heavy food tables, and stage carpets for wedding halls and rallies.' },
+  { name: 'Kishan Heavy Machinery Rigging Labor', title: 'Industrial Generator & Heavy Lathe Machine Moving Crew', exp: 16, rating: 4.95, jobs: 530, reviewsCount: 180, skills: ['Machinery Crowbar Winch', 'Pipe Rollers', 'Chain Pulley Block', 'Factory Shift'], bio: 'Skilled riggers using heavy chain pulley blocks and steel rollers to shift 2-ton factory machines safely.' }
+]);
+
+// 20. SECURITY & CARETAKER (10 Specialists)
+const SECURITY_PEOPLE = buildCategorySpecialists('cat-security', 'Security', 11000, 'per month', [
+  { name: 'Vicky Security & Facility Services', title: '24x7 Uniformed Commercial & Residential Security Guard Agency', exp: 15, rating: 4.98, jobs: 650, reviewsCount: 240, skills: ['Ex-Servicemen Guard', 'Visitor Register', 'CCTV Monitoring', 'Night Guard Duty'], bio: '15+ years providing disciplined uniformed security guards for commercial buildings, bank ATMs, and residential colonies.' },
+  { name: 'Rahul Residential Property Caretaker', title: 'Full-Time Residential Property Caretaker & House Watchman', exp: 12, rating: 4.94, jobs: 480, reviewsCount: 165, skills: ['Vacant Property Guarding', 'Water Motor Control', 'Gate Keeping', 'Utility Bills'], bio: 'Trustworthy caretakers safeguarding vacant bungalow properties, turning on water pumps, and maintaining premises.' },
+  { name: 'Sanjeev Lawn Gardener & Mali Work', title: 'Lawn Grass Trimming, Plant Nursery Care & Pruning Gardener', exp: 14, rating: 4.92, jobs: 510, reviewsCount: 175, skills: ['Grass Lawn Cutter Machine', 'Rose Plant Pruning', 'Organic Fertilizer', 'Flower Bed Design'], bio: 'Expert gardener with motor lawn mower for trimming green grass lawns, potted flower plants, and hedge trimming.' },
+  { name: 'Amit Event Bouncer & VIP Escort', title: 'Physical Safety Bouncer Team for Marriage & Celebrity Events', exp: 10, rating: 4.96, jobs: 380, reviewsCount: 135, skills: ['Tall Muscular Bouncers', 'Crowd Control', 'VIP Escort', 'Stage Barrier Duty'], bio: 'Heavy physical bouncers managing wedding stage crowds, VIP guests, and music concert entry gates.' },
+  { name: 'Deepak Night Watchman Patrol', title: 'Night Patrol Security Watchman for Shops & Commercial Markets', exp: 13, rating: 4.90, jobs: 420, reviewsCount: 140, skills: ['Night Whistle Patrol', 'Lock Verification', 'Shutter Protection', 'Emergency Alert'], bio: 'Active night watchman patrolling market shop shutters and coal yard premises with torch and whistle.' },
+  { name: 'Ravi Industrial Godown Security Guard', title: 'Factory Godown & Mining Area Heavy Duty Security Guard', exp: 11, rating: 4.91, jobs: 390, reviewsCount: 128, skills: ['Truck Gate Pass Check', 'Material Weighbridge Audit', 'Fire Safety Trained', 'Strict Entry'], bio: 'Verifying incoming truck gate passes, material delivery slips, and safeguarding heavy industrial machinery.' },
+  { name: 'Manoj Apartment Society Security Guard', title: 'Multi-Story Housing Apartment Gatekeeper & Parking Assistant', exp: 9, rating: 4.88, jobs: 320, reviewsCount: 102, skills: ['Vehicle Parking Guide', 'Delivery Boy Register', 'Intercom Call', 'Lift Maintenance Assist'], bio: 'Polite apartment gatekeeper logging visitor entries, managing tenant vehicle parking, and assisting elders.' },
+  { name: 'Pawan School & Hospital Security Guard', title: 'School Entrance Safety Guard & Hospital Patient Gatekeeper', exp: 10, rating: 4.89, jobs: 350, reviewsCount: 118, skills: ['School Student Traffic Control', 'Patient Emergency Gate', 'Polite Behavior', 'CCTV Monitor'], bio: 'Managing safe school gate dispersals and guiding hospital emergency ambulance arrivals.' },
+  { name: 'Suraj Bank ATM Security Guard', title: 'Bank ATM Cabin & Currency Chest Guard', exp: 12, rating: 4.93, jobs: 410, reviewsCount: 138, skills: ['ATM Cabin Rules', 'Alert Presence', 'Cash Van Escort', 'Zero Incident Track'], bio: 'Vigilant security guard maintaining orderly ATM queue lines and assisting senior citizens.' },
+  { name: 'Kishan Personal Bodyguard & Driver Guard', title: 'Personal Armed/Unarmed Bodyguard & Security Driver', exp: 14, rating: 4.95, jobs: 310, reviewsCount: 110, skills: ['Personal Safety Defense', 'Tactical Driving', 'Discreet Protection', 'VIP Escort'], bio: 'Trained personal protection officer providing discreet safety security and tactical driving.' }
+]);
+
 export const INITIAL_PROVIDERS: ServiceProvider[] = [
   ...TUITION_PEOPLE.slice(0, 10),
   ...ELECTRICIAN_PEOPLE.slice(0, 10),
@@ -633,7 +973,17 @@ export const INITIAL_PROVIDERS: ServiceProvider[] = [
   ...PRIEST_PEOPLE.slice(0, 10),
   ...MATERIALS_PEOPLE.slice(0, 10),
   ...COMPUTER_PEOPLE.slice(0, 10),
-  ...CLEANING_PEOPLE.slice(0, 10)
+  ...CLEANING_PEOPLE.slice(0, 10),
+  ...WELDER_PEOPLE.slice(0, 10),
+  ...MASON_PEOPLE.slice(0, 10),
+  ...RO_PEOPLE.slice(0, 10),
+  ...SALON_PEOPLE.slice(0, 10),
+  ...MECHANIC_PEOPLE.slice(0, 10),
+  ...CATERING_PEOPLE.slice(0, 10),
+  ...PHOTO_PEOPLE.slice(0, 10),
+  ...DRIVER_PEOPLE.slice(0, 10),
+  ...LABOR_PEOPLE.slice(0, 10),
+  ...SECURITY_PEOPLE.slice(0, 10)
 ];
 
 export const INITIAL_REQUESTS: ServiceRequest[] = [

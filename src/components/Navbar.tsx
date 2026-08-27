@@ -44,6 +44,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     currentTab,
     setCurrentTab,
     setFilters,
+    resetFilters,
     isOwnerAuthenticated,
     isEditLockedToOwner,
     openOwnerUnlockModal

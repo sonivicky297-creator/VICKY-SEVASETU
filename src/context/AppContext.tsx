@@ -33,6 +33,9 @@ interface AppContextType {
   selectedCity: string;
   setSelectedCity: (city: string) => void;
   cities: string[];
+  addCity: (cityName: string) => void;
+  updateCity: (oldName: string, newName: string) => void;
+  deleteCity: (cityName: string) => void;
   
   userLocation: UserLocationState | null;
   setUserLocation: (loc: UserLocationState | null) => void;
@@ -109,6 +112,7 @@ interface AppContextType {
 const STORAGE_KEYS = {
   LANG: 'sevasetu_lang_v7',
   CITY: 'sevasetu_city_v7',
+  CITIES: 'sevasetu_cities_v7',
   CATEGORIES: 'sevasetu_categories_v7',
   PROVIDERS: 'sevasetu_providers_v7',
   REQUESTS: 'sevasetu_requests_v7',
@@ -143,11 +147,33 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return localStorage.getItem(STORAGE_KEYS.CITY) || 'All Locations';
   });
 
+  const [cities, setCities] = useState<string[]>(() => {
+    const saved = localStorage.getItem(STORAGE_KEYS.CITIES);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      } catch (e) {
+        console.error('Failed to parse saved cities', e);
+      }
+    }
+    return CITIES_LIST;
+  });
+
   const [categories, setCategories] = useState<Category[]>(() => {
     const saved = localStorage.getItem(STORAGE_KEYS.CATEGORIES);
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          // Merge any newly added categories from INITIAL_CATEGORIES
+          const existingIds = new Set(parsed.map((c: Category) => c.id));
+          const missing = INITIAL_CATEGORIES.filter(c => !existingIds.has(c.id));
+          if (missing.length > 0) {
+            return [...parsed, ...missing];
+          }
+          return parsed;
+        }
       } catch (e) {
         console.error('Failed to parse saved categories', e);
       }
@@ -162,7 +188,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       try {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          loadedProviders = parsed;
+          // Merge any newly added initial providers for new categories
+          const existingIds = new Set(parsed.map((p: ServiceProvider) => p.id));
+          const missing = INITIAL_PROVIDERS.filter(p => !existingIds.has(p.id));
+          loadedProviders = [...parsed, ...missing];
         }
       } catch (e) {
         console.error('Failed to parse saved providers', e);
@@ -259,6 +288,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.CITY, selectedCity);
   }, [selectedCity]);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.CITIES, JSON.stringify(cities));
+  }, [cities]);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.CATEGORIES, JSON.stringify(categories));
@@ -616,6 +649,44 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     addToast('Thank you for submitting your review!', 'success');
   };
 
+  // City CRUD
+  const addCity = (cityName: string) => {
+    const clean = cityName.trim();
+    if (!clean) return;
+    if (cities.includes(clean)) {
+      addToast('यह एरिया पहले से लिस्टेड है (Area already exists)', 'warning');
+      return;
+    }
+    setCities(prev => [...prev, clean]);
+    addToast(`✅ नया कवर एरिया '${clean}' सफलतापूर्वक जोड़ा गया!`, 'success');
+  };
+
+  const updateCity = (oldName: string, newName: string) => {
+    const clean = newName.trim();
+    if (!clean) return;
+    if (cities.includes(clean) && clean !== oldName) {
+      addToast('यह एरिया पहले से मौजूद है', 'warning');
+      return;
+    }
+    setCities(prev => prev.map(c => c === oldName ? clean : c));
+    if (selectedCity === oldName) {
+      setSelectedCityState(clean);
+    }
+    addToast(`✅ कवर एरिया का नाम अपडेट किया गया: '${clean}'`, 'info');
+  };
+
+  const deleteCity = (cityName: string) => {
+    if (cities.length <= 1) {
+      addToast('कम से कम 1 कवर एरिया होना जरूरी है', 'warning');
+      return;
+    }
+    setCities(prev => prev.filter(c => c !== cityName));
+    if (selectedCity === cityName) {
+      setSelectedCityState('All Locations');
+    }
+    addToast(`🗑️ एरिया '${cityName}' हटा दिया गया`, 'info');
+  };
+
   // Category CRUD
   const addCategory = (catData: Omit<Category, 'id'>) => {
     const newCat: Category = {
@@ -711,7 +782,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         t,
         selectedCity,
         setSelectedCity,
-        cities: CITIES_LIST,
+        cities,
+        addCity,
+        updateCity,
+        deleteCity,
         userLocation,
         setUserLocation,
         viewMode,

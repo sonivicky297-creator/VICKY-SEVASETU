@@ -1,8 +1,11 @@
-import React from 'react';
-import { ArrowRight, Sparkles, Users } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, Sparkles, Users, Edit3, Plus, MapPin } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { renderCategoryIcon } from '../utils/iconHelper';
 import { Category } from '../types';
+import { EditCategoryModal } from './EditCategoryModal';
+import { AddCategoryModal } from './AddCategoryModal';
+import { ManageCitiesModal } from './ManageCitiesModal';
 
 interface CategoryGridProps {
   onCategorySelect: (categoryId: string) => void;
@@ -13,10 +16,38 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
   onCategorySelect,
   onOpenTeamModal
 }) => {
-  const { t, categories, providers } = useApp();
+  const { t, categories, providers, canEditDocument, openOwnerUnlockModal } = useApp();
+  const [editingCategory, setEditingCategory] = useState<Category | null>(null);
+  const [showAddCategoryModal, setShowAddCategoryModal] = useState(false);
+  const [showManageCitiesModal, setShowManageCitiesModal] = useState(false);
 
   const getProviderCountForCat = (catId: string) => {
     return providers.filter(p => p.categoryId === catId).length;
+  };
+
+  const handleEditCategory = (e: React.MouseEvent, cat: Category) => {
+    e.stopPropagation();
+    if (!canEditDocument) {
+      openOwnerUnlockModal(() => setEditingCategory(cat));
+    } else {
+      setEditingCategory(cat);
+    }
+  };
+
+  const handleOpenAddCategory = () => {
+    if (!canEditDocument) {
+      openOwnerUnlockModal(() => setShowAddCategoryModal(true));
+    } else {
+      setShowAddCategoryModal(true);
+    }
+  };
+
+  const handleOpenManageCities = () => {
+    if (!canEditDocument) {
+      openOwnerUnlockModal(() => setShowManageCitiesModal(true));
+    } else {
+      setShowManageCitiesModal(true);
+    }
   };
 
   return (
@@ -28,7 +59,7 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-amber-100 text-amber-800 text-xs font-bold tracking-wide uppercase mb-2">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>All Primary Services (20 Verified Specialists Each)</span>
+              <span>All Primary Services & Covered Locations</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               {t.categoriesHeading}
@@ -38,14 +69,38 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
             </p>
           </div>
 
-          <button
-            onClick={() => onCategorySelect('all')}
-            id="view-all-categories-btn"
-            className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 font-semibold text-sm group shrink-0"
-          >
-            <span>{t.viewAllCategories}</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+            {/* Add New Category Button */}
+            <button
+              onClick={handleOpenAddCategory}
+              id="add-new-category-btn"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-extrabold text-xs shadow-md transition-all active:scale-95 shrink-0"
+              title="Add a new work category"
+            >
+              <Plus className="w-4 h-4" />
+              <span>➕ नई कैटेगरी जोड़ें (Add Category)</span>
+            </button>
+
+            {/* Manage Covered Areas Button */}
+            <button
+              onClick={handleOpenManageCities}
+              id="manage-covered-areas-btn"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs shadow-md transition-all active:scale-95 shrink-0"
+              title="Manage and add covered locations/areas"
+            >
+              <MapPin className="w-4 h-4 text-amber-400" />
+              <span>📍 ऑल कवर एरिया एडिट</span>
+            </button>
+
+            <button
+              onClick={() => onCategorySelect('all')}
+              id="view-all-categories-btn"
+              className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 font-semibold text-sm group shrink-0 ml-1"
+            >
+              <span>{t.viewAllCategories}</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
         </div>
 
         {/* Categories Grid */}
@@ -71,7 +126,20 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
                     <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${cat.color} flex items-center justify-center text-white shadow-xs group-hover:scale-105 transition-transform relative`}>
                       {renderCategoryIcon(cat.iconName, { className: "w-6 h-6" })}
                     </div>
+                    
                     <div className="flex flex-col items-end gap-1">
+                      {/* Category Edit Button */}
+                      <button
+                        type="button"
+                        onClick={(e) => handleEditCategory(e, cat)}
+                        id={`edit-category-btn-${cat.id}`}
+                        className="px-2 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-300 text-[11px] font-bold flex items-center gap-1 transition-all active:scale-95 shadow-2xs"
+                        title="Edit Category Name, Description & Status"
+                      >
+                        <Edit3 className="w-3 h-3 text-amber-700" />
+                        <span>कैटेगरी एडिट</span>
+                      </button>
+
                       {cat.isClosedToday && (
                         <span className="text-[10px] font-black px-2 py-0.5 rounded-md bg-red-100 text-red-700 border border-red-200">
                           Closed Today
@@ -129,6 +197,28 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({
         </div>
 
       </div>
+
+      {/* Category Edit Modal */}
+      {editingCategory && (
+        <EditCategoryModal
+          category={editingCategory}
+          onClose={() => setEditingCategory(null)}
+        />
+      )}
+
+      {/* Add New Category Modal */}
+      {showAddCategoryModal && (
+        <AddCategoryModal
+          onClose={() => setShowAddCategoryModal(false)}
+        />
+      )}
+
+      {/* Manage Covered Areas Modal */}
+      {showManageCitiesModal && (
+        <ManageCitiesModal
+          onClose={() => setShowManageCitiesModal(false)}
+        />
+      )}
     </section>
   );
 };

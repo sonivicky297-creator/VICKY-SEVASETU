@@ -19,7 +19,6 @@ import {
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import { ProviderCard } from './ProviderCard';
-import { ProviderMap } from './ProviderMap';
 import { BarcodeModal } from './BarcodeModal';
 import { TaskImageEditorModal } from './TaskImageEditorModal';
 import { EditProviderModal } from './EditProviderModal';
@@ -277,57 +276,15 @@ export const ProviderDirectory: React.FC = () => {
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               
               {/* Search input */}
-              <div className="relative flex-1 sm:w-64">
+              <div className="relative flex-1 sm:w-80">
                 <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   value={filters.searchQuery}
                   onChange={(e) => setFilters(prev => ({ ...prev, searchQuery: e.target.value }))}
-                  placeholder="Search pro name or skill..."
+                  placeholder="Search pro name, skill or service..."
                   className="w-full pl-9 pr-3 py-2 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-hidden focus:border-amber-500 focus:bg-white transition-colors"
                 />
-              </div>
-
-              {/* View Mode Toggle Segmented Control */}
-              <div className="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 shadow-2xs">
-                <button
-                  onClick={() => setViewMode('grid')}
-                  title={t.gridView}
-                  className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                    viewMode === 'grid'
-                      ? 'bg-white text-slate-900 shadow-xs'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  <LayoutGrid className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">{t.gridView}</span>
-                </button>
-
-                <button
-                  onClick={() => setViewMode('split')}
-                  title={t.splitView}
-                  className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                    viewMode === 'split'
-                      ? 'bg-white text-slate-900 shadow-xs'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  <Columns2 className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">{t.splitView}</span>
-                </button>
-
-                <button
-                  onClick={() => setViewMode('map')}
-                  title={t.mapView}
-                  className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                    viewMode === 'map'
-                      ? 'bg-white text-emerald-700 shadow-xs'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  <MapIcon className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">{t.mapView}</span>
-                </button>
               </div>
 
               {/* Mobile Filter Toggle */}
@@ -633,97 +590,40 @@ export const ProviderDirectory: React.FC = () => {
               </div>
             </div>
 
-            {/* View Mode 1: Split View (Map + Live Synchronized List) */}
-            {viewMode === 'split' && (
-              <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
-                {/* Left: Sticky Map */}
-                <div className="xl:col-span-6 xl:sticky xl:top-24 h-[420px] xl:h-[720px]">
-                  <ProviderMap 
-                    providers={filteredProviders}
-                    selectedCity={filters.city}
-                    isSplitView={true}
-                    className="h-full"
-                    onProviderSelect={(prov) => {
-                      const card = document.getElementById(`provider-card-${prov.id}`);
-                      if (card) {
-                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                      }
-                    }}
+            {/* Direct Service Provider Grid View */}
+            {filteredProviders.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {filteredProviders.map((provider) => (
+                  <ProviderCard
+                    key={provider.id}
+                    provider={provider}
+                    onViewProfile={openProviderProfile}
+                    onRequestService={openBookingModal}
+                    onOpenBarcode={setSelectedBarcodeProvider}
+                    onOpenImageEditor={setSelectedImageEditorProvider}
+                    onOpenEdit={setSelectedEditProvider}
                   />
-                </div>
-
-                {/* Right: Scrollable Card List */}
-                <div className="xl:col-span-6 space-y-4">
-                  {filteredProviders.length > 0 ? (
-                    filteredProviders.map(provider => (
-                      <ProviderCard
-                        key={provider.id}
-                        provider={provider}
-                        onViewProfile={openProviderProfile}
-                        onRequestService={openBookingModal}
-                        onOpenBarcode={setSelectedBarcodeProvider}
-                        onOpenImageEditor={setSelectedImageEditorProvider}
-                        onOpenEdit={setSelectedEditProvider}
-                        compact={true}
-                      />
-                    ))
-                  ) : (
-                    <div className="bg-white rounded-2xl p-8 text-center border border-slate-200">
-                      <p className="text-slate-500 text-xs">{t.noProvidersFound}</p>
-                    </div>
-                  )}
-                </div>
+                ))}
               </div>
-            )}
-
-            {/* View Mode 2: Full Map View */}
-            {viewMode === 'map' && (
-              <div className="h-[620px] sm:h-[720px]">
-                <ProviderMap 
-                  providers={filteredProviders}
-                  selectedCity={filters.city}
-                  className="h-full"
-                  onProviderSelect={() => {}}
-                />
+            ) : (
+              <div className="bg-white rounded-2xl p-12 text-center border border-slate-200 shadow-xs">
+                <div className="w-16 h-16 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center mx-auto mb-4">
+                  <Search className="w-8 h-8" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  No Service Providers Found
+                </h3>
+                <p className="text-sm text-slate-500 max-w-md mx-auto mb-6">
+                  {t.noProvidersFound}
+                </p>
+                <button
+                  onClick={resetFilters}
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600 text-white text-xs sm:text-sm font-bold rounded-xl hover:bg-amber-700 transition-colors shadow-xs"
+                >
+                  <RotateCcw className="w-4 h-4" />
+                  <span>{t.clearAll}</span>
+                </button>
               </div>
-            )}
-
-            {/* View Mode 3: Traditional Grid View */}
-            {viewMode === 'grid' && (
-              filteredProviders.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {filteredProviders.map((provider) => (
-                    <ProviderCard
-                      key={provider.id}
-                      provider={provider}
-                      onViewProfile={openProviderProfile}
-                      onRequestService={openBookingModal}
-                      onOpenBarcode={setSelectedBarcodeProvider}
-                      onOpenImageEditor={setSelectedImageEditorProvider}
-                      onOpenEdit={setSelectedEditProvider}
-                    />
-                  ))}
-                </div>
-              ) : (
-                <div className="bg-white rounded-2xl p-12 text-center border border-slate-200 shadow-xs">
-                  <div className="w-16 h-16 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center mx-auto mb-4">
-                    <Search className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">
-                    No Providers Found
-                  </h3>
-                  <p className="text-sm text-slate-500 max-w-md mx-auto mb-6">
-                    {t.noProvidersFound}
-                  </p>
-                  <button
-                    onClick={resetFilters}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600 text-white text-xs sm:text-sm font-bold rounded-xl hover:bg-amber-700 transition-colors shadow-xs"
-                  >
-                    <RotateCcw className="w-4 h-4" />
-                    <span>{t.clearAll}</span>
-                  </button>
-                </div>
-              )
             )}
 
           </div>
