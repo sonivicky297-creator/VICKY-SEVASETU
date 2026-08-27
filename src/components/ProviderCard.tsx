@@ -21,6 +21,7 @@ import { calculateDistanceKm, formatDistance } from '../utils/geoUtils';
 
 interface ProviderCardProps {
   provider: ServiceProvider;
+  index?: number;
   onViewProfile: (provider: ServiceProvider) => void;
   onRequestService: (provider: ServiceProvider) => void;
   onShowOnMap?: (provider: ServiceProvider) => void;
@@ -32,6 +33,7 @@ interface ProviderCardProps {
 
 export const ProviderCard: React.FC<ProviderCardProps> = ({ 
   provider, 
+  index,
   onViewProfile, 
   onRequestService,
   onShowOnMap,
@@ -114,17 +116,22 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({
       <div className={compact ? 'p-3.5' : 'p-5'}>
         <div className="flex items-start gap-3.5">
           
-          {/* Avatar with Verified Ring */}
+          {/* Avatar with Verified Ring & Numbering */}
           <div className="relative shrink-0">
             <img 
               src={provider.avatar} 
               alt={provider.name}
               referrerPolicy="no-referrer"
-              className={`${compact ? 'w-14 h-14' : 'w-16 h-16 sm:w-20 sm:h-20'} rounded-xl object-cover border-2 border-slate-100 shadow-2xs group-hover:scale-105 transition-transform`}
+              className={`${compact ? 'w-14 h-14' : 'w-16 h-16 sm:w-20 sm:h-20'} rounded-2xl object-cover border-2 border-slate-200 shadow-2xs group-hover:scale-105 transition-transform`}
             />
+            {index !== undefined && (
+              <span className="absolute -top-1.5 -left-1.5 bg-amber-500 text-slate-950 text-[10px] font-black px-1.5 py-0.5 rounded-md shadow-xs border border-amber-300">
+                #{index}
+              </span>
+            )}
             {provider.isVerified && (
               <div 
-                className="absolute -bottom-1 -right-1 bg-emerald-600 text-white rounded-full p-1 shadow-xs"
+                className="absolute -bottom-1 -right-1 bg-emerald-600 text-white rounded-full p-1 shadow-xs ring-2 ring-white"
                 title={t.verifiedBadge}
               >
                 <ShieldCheck className="w-3.5 h-3.5" />
@@ -156,25 +163,25 @@ export const ProviderCard: React.FC<ProviderCardProps> = ({
             {/* Name */}
             <h3 
               onClick={() => onViewProfile(provider)}
-              className="text-base sm:text-lg font-bold text-slate-900 hover:text-amber-600 transition-colors mt-1.5 truncate cursor-pointer"
+              className="text-base sm:text-lg font-black text-slate-900 hover:text-amber-600 transition-colors mt-1.5 break-words cursor-pointer leading-snug"
             >
               {provider.name}
             </h3>
 
             {/* Title / Trade */}
-            <p className="text-xs sm:text-sm font-medium text-amber-700 truncate">
+            <p className="text-xs sm:text-sm font-bold text-amber-800 break-words mt-0.5 leading-snug">
               {provider.title}
             </p>
 
             {/* Location & Experience */}
-            <div className="flex flex-wrap items-center gap-y-1 gap-x-3 text-xs text-slate-500 mt-2">
-              <span className="flex items-center gap-1 truncate max-w-[160px]">
-                <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                {provider.location.area || provider.location.city}
+            <div className="flex flex-wrap items-center gap-y-1 gap-x-2.5 text-xs text-slate-600 mt-2">
+              <span className="flex items-center gap-1 font-semibold text-slate-800 bg-slate-100 px-2 py-0.5 rounded">
+                <MapPin className="w-3.5 h-3.5 text-rose-500 shrink-0" />
+                <span>{provider.location.area || provider.location.city}</span>
               </span>
-              <span className="flex items-center gap-1 font-medium text-slate-700">
-                <Briefcase className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                {provider.experienceYears} {t.years} exp
+              <span className="flex items-center gap-1 font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">
+                <Briefcase className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                <span>{provider.experienceYears} {t.years}</span>
               </span>
             </div>
           </div>

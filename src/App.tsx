@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
@@ -35,6 +35,7 @@ const MainAppContent: React.FC = () => {
     openBookingModal,
     closeBookingModal,
     setFilters,
+    resetFilters,
     canEditDocument,
     showOwnerUnlockModal,
     openOwnerUnlockModal,
@@ -47,11 +48,104 @@ const MainAppContent: React.FC = () => {
   const [aboutModalOpen, setAboutModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
   
-  // New Dedicated Modals
+  // Dedicated Modals
   const [teamModalCategory, setTeamModalCategory] = useState<Category | null>(null);
   const [barcodeProvider, setBarcodeProvider] = useState<ServiceProvider | null>(null);
   const [imageEditorProvider, setImageEditorProvider] = useState<ServiceProvider | null>(null);
   const [editModalProvider, setEditModalProvider] = useState<ServiceProvider | null>(null);
+
+  // Direct Go to Home action
+  const handleGoHome = () => {
+    closeProviderProfile();
+    closeBookingModal();
+    setJoinModalOpen(false);
+    setBookingsModalOpen(false);
+    setAdminModalOpen(false);
+    setAboutModalOpen(false);
+    setContactModalOpen(false);
+    setTeamModalCategory(null);
+    setBarcodeProvider(null);
+    setImageEditorProvider(null);
+    setEditModalProvider(null);
+    resetFilters();
+    setCurrentTab('home');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Browser History & Mobile Back Navigation handling
+  useEffect(() => {
+    try {
+      if (!window.history.state) {
+        window.history.replaceState({ app: 'sevasetu', tab: 'home' }, '');
+      }
+    } catch {}
+
+    const handlePopState = () => {
+      // 1. Close tertiary modals first
+      if (editModalProvider) {
+        setEditModalProvider(null);
+        return;
+      }
+      if (imageEditorProvider) {
+        setImageEditorProvider(null);
+        return;
+      }
+      if (barcodeProvider) {
+        setBarcodeProvider(null);
+        return;
+      }
+
+      // 2. Close booking or profile modals
+      if (selectedProviderForBooking) {
+        closeBookingModal();
+        return;
+      }
+      if (selectedProviderForProfile) {
+        closeProviderProfile();
+        return;
+      }
+
+      // 3. Close team modal
+      if (teamModalCategory) {
+        setTeamModalCategory(null);
+        return;
+      }
+
+      // 4. Close top nav modals
+      if (joinModalOpen) { setJoinModalOpen(false); return; }
+      if (bookingsModalOpen) { setBookingsModalOpen(false); return; }
+      if (adminModalOpen) { setAdminModalOpen(false); return; }
+      if (aboutModalOpen) { setAboutModalOpen(false); return; }
+      if (contactModalOpen) { setContactModalOpen(false); return; }
+
+      // 5. If on directory tab, return back to home
+      if (currentTab === 'directory') {
+        setCurrentTab('home');
+        return;
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [
+    currentTab,
+    selectedProviderForProfile,
+    selectedProviderForBooking,
+    teamModalCategory,
+    barcodeProvider,
+    imageEditorProvider,
+    editModalProvider,
+    joinModalOpen,
+    bookingsModalOpen,
+    adminModalOpen,
+    aboutModalOpen,
+    contactModalOpen,
+    closeBookingModal,
+    closeProviderProfile,
+    setCurrentTab
+  ]);
 
   const handleProtectedEdit = (action: () => void) => {
     if (!canEditDocument) {
@@ -62,8 +156,26 @@ const MainAppContent: React.FC = () => {
   };
 
   const handleCategorySelect = (categoryId: string) => {
+    try {
+      window.history.pushState({ app: 'sevasetu', tab: 'directory', categoryId }, '');
+    } catch {}
     setFilters(prev => ({ ...prev, categoryId }));
     setCurrentTab('directory');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleOpenTeam = (cat: Category) => {
+    try {
+      window.history.pushState({ app: 'sevasetu', modal: 'team', categoryId: cat.id }, '');
+    } catch {}
+    setTeamModalCategory(cat);
+  };
+
+  const handleOpenProfile = (prov: ServiceProvider) => {
+    try {
+      window.history.pushState({ app: 'sevasetu', modal: 'profile', providerId: prov.id }, '');
+    } catch {}
+    openProviderProfile(prov);
   };
 
   return (
@@ -71,11 +183,26 @@ const MainAppContent: React.FC = () => {
       
       {/* Navigation Header */}
       <Navbar
-        onOpenJoin={() => setJoinModalOpen(true)}
-        onOpenBookings={() => setBookingsModalOpen(true)}
-        onOpenAdmin={() => setAdminModalOpen(true)}
-        onOpenAbout={() => setAboutModalOpen(true)}
-        onOpenContact={() => setContactModalOpen(true)}
+        onOpenJoin={() => {
+          try { window.history.pushState({ modal: 'join' }, ''); } catch {}
+          setJoinModalOpen(true);
+        }}
+        onOpenBookings={() => {
+          try { window.history.pushState({ modal: 'bookings' }, ''); } catch {}
+          setBookingsModalOpen(true);
+        }}
+        onOpenAdmin={() => {
+          try { window.history.pushState({ modal: 'admin' }, ''); } catch {}
+          setAdminModalOpen(true);
+        }}
+        onOpenAbout={() => {
+          try { window.history.pushState({ modal: 'about' }, ''); } catch {}
+          setAboutModalOpen(true);
+        }}
+        onOpenContact={() => {
+          try { window.history.pushState({ modal: 'contact' }, ''); } catch {}
+          setContactModalOpen(true);
+        }}
       />
 
       {/* Main Dynamic View */}
@@ -84,19 +211,25 @@ const MainAppContent: React.FC = () => {
           <>
             {/* 1. Hero with Live Search and Quick stats */}
             <HeroSection
-              onSearchSubmit={() => setCurrentTab('directory')}
+              onSearchSubmit={() => {
+                try { window.history.pushState({ tab: 'directory' }, ''); } catch {}
+                setCurrentTab('directory');
+              }}
               onCategorySelect={handleCategorySelect}
             />
 
             {/* 2. Popular Categories Grid with 10-person task team modal */}
             <CategoryGrid
               onCategorySelect={handleCategorySelect}
-              onOpenTeamModal={(cat) => setTeamModalCategory(cat)}
+              onOpenTeamModal={handleOpenTeam}
             />
 
             {/* 3. Featured Verified Specialists */}
             <FeaturedProviders
-              onViewAll={() => setCurrentTab('directory')}
+              onViewAll={() => {
+                try { window.history.pushState({ tab: 'directory' }, ''); } catch {}
+                setCurrentTab('directory');
+              }}
             />
 
             {/* 4. How It Works (Transparent 3-step guide) */}
@@ -106,17 +239,45 @@ const MainAppContent: React.FC = () => {
             <TrustAndSafety />
           </>
         ) : (
-          /* Search & Filter Directory Page */
-          <ProviderDirectory />
+          /* Search & Filter Directory Page with Direct Back Button */
+          <div className="relative">
+            {/* Direct Home Navigation Bar on Directory Page */}
+            <div className="bg-amber-500 text-slate-950 px-4 py-2 flex items-center justify-between shadow-xs">
+              <button
+                onClick={handleGoHome}
+                id="directory-back-home-banner-btn"
+                className="flex items-center gap-1.5 font-black text-xs sm:text-sm bg-slate-950 text-amber-400 hover:bg-slate-900 px-3 py-1.5 rounded-xl shadow-xs transition-transform active:scale-95"
+              >
+                <span>🏠 मुख्य होम पेज पर वापस जाएं (Back to Home)</span>
+              </button>
+              <span className="text-xs font-bold hidden sm:inline text-slate-950">
+                0% कमीशन • डायरेक्ट सेवा बुकिंग
+              </span>
+            </div>
+
+            <ProviderDirectory />
+          </div>
         )}
       </main>
 
       {/* Footer */}
       <Footer
-        onOpenJoin={() => setJoinModalOpen(true)}
-        onOpenAdmin={() => setAdminModalOpen(true)}
-        onOpenAbout={() => setAboutModalOpen(true)}
-        onOpenContact={() => setContactModalOpen(true)}
+        onOpenJoin={() => {
+          try { window.history.pushState({ modal: 'join' }, ''); } catch {}
+          setJoinModalOpen(true);
+        }}
+        onOpenAdmin={() => {
+          try { window.history.pushState({ modal: 'admin' }, ''); } catch {}
+          setAdminModalOpen(true);
+        }}
+        onOpenAbout={() => {
+          try { window.history.pushState({ modal: 'about' }, ''); } catch {}
+          setAboutModalOpen(true);
+        }}
+        onOpenContact={() => {
+          try { window.history.pushState({ modal: 'contact' }, ''); } catch {}
+          setContactModalOpen(true);
+        }}
       />
 
       {/* MODALS */}
@@ -125,8 +286,10 @@ const MainAppContent: React.FC = () => {
         <ProviderProfileModal
           provider={selectedProviderForProfile}
           onClose={closeProviderProfile}
+          onGoHome={handleGoHome}
           onBookNow={(provider) => {
             closeProviderProfile();
+            try { window.history.pushState({ modal: 'booking' }, ''); } catch {}
             openBookingModal(provider);
           }}
         />
@@ -180,22 +343,33 @@ const MainAppContent: React.FC = () => {
         <TaskTeamModal
           category={teamModalCategory}
           onClose={() => setTeamModalCategory(null)}
+          onGoHome={handleGoHome}
           onSelectProviderForProfile={(prov) => {
             setTeamModalCategory(null);
-            openProviderProfile(prov);
+            handleOpenProfile(prov);
           }}
           onSelectProviderForBooking={(prov) => {
             setTeamModalCategory(null);
+            try { window.history.pushState({ modal: 'booking' }, ''); } catch {}
             openBookingModal(prov);
           }}
           onOpenBarcode={(prov) => {
-            handleProtectedEdit(() => setBarcodeProvider(prov));
+            handleProtectedEdit(() => {
+              try { window.history.pushState({ modal: 'barcode' }, ''); } catch {}
+              setBarcodeProvider(prov);
+            });
           }}
           onOpenImageEditor={(prov) => {
-            handleProtectedEdit(() => setImageEditorProvider(prov));
+            handleProtectedEdit(() => {
+              try { window.history.pushState({ modal: 'imageEditor' }, ''); } catch {}
+              setImageEditorProvider(prov);
+            });
           }}
           onOpenEdit={(prov) => {
-            handleProtectedEdit(() => setEditModalProvider(prov));
+            handleProtectedEdit(() => {
+              try { window.history.pushState({ modal: 'edit' }, ''); } catch {}
+              setEditModalProvider(prov);
+            });
           }}
         />
       )}
@@ -234,8 +408,13 @@ const MainAppContent: React.FC = () => {
       {/* Bottom Left Floating Owner Lock / 30-Second Timer Widget */}
       <BottomLeftOwnerEditLock />
 
-      {/* Sticky Mobile Bottom Navigation Bar (Home, Back, Services, Bookings, Lock) */}
-      <MobileBottomNav onOpenBookings={() => setBookingsModalOpen(true)} />
+      {/* Sticky Mobile Bottom Navigation Bar */}
+      <MobileBottomNav 
+        onOpenBookings={() => {
+          try { window.history.pushState({ modal: 'bookings' }, ''); } catch {}
+          setBookingsModalOpen(true);
+        }} 
+      />
 
       {/* Global Toast System */}
       <ToastContainer />

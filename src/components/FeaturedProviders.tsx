@@ -56,9 +56,10 @@ export const FeaturedProviders: React.FC<FeaturedProvidersProps> = ({ onViewAll 
 
         {/* Featured Providers Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featured.map((provider) => (
+          {featured.map((provider, idx) => (
             <ProviderCard
               key={provider.id}
+              index={idx + 1}
               provider={provider}
               onViewProfile={openProviderProfile}
               onRequestService={openBookingModal}

@@ -593,9 +593,10 @@ export const ProviderDirectory: React.FC = () => {
             {/* Direct Service Provider Grid View */}
             {filteredProviders.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {filteredProviders.map((provider) => (
+                {filteredProviders.map((provider, idx) => (
                   <ProviderCard
                     key={provider.id}
+                    index={idx + 1}
                     provider={provider}
                     onViewProfile={openProviderProfile}
                     onRequestService={openBookingModal}
